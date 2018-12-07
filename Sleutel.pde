@@ -4,6 +4,7 @@ deze class maakt de sleutel aan.
 
 class Sleutel {
   int sleutelX;
+  //test github
   int sleutelY;
   int amountOfSleutels;
 
