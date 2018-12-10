@@ -42,7 +42,15 @@ class LoadAssets {
   PImage sleutelSprite;
   PImage eDeur;
   PImage monsterSprite;
-  PImage backgroundDD;
+  PImage[] background;
+  PImage Background00;
+  PImage Background01;
+  PImage Background02;
+  PImage Background03;
+  PImage Background04;
+  PImage Background05;
+  PImage Background06;
+  PImage Background07;
   PImage Licht;
   PFont pixeled;
   PImage Start;
@@ -50,6 +58,7 @@ class LoadAssets {
   PImage Nextlvl;
   PImage Exit;
   PImage DDlogo1;
+  PImage Ondergrond;
   
 
 
@@ -86,12 +95,21 @@ class LoadAssets {
     playerstep5 = minim.loadSample("playerstep5.wav");
     victory = minim.loadFile("Victory!.mp3");
     //playerSprite = loadImage("Howdy clone.png");
+    Ondergrond = loadImage("72ondergrond.png");
     muurSpriteV = loadImage("MuurConceptV.png");
     muurSpriteH = loadImage("MuurConceptH.png");
     eDeur = loadImage("Deur.png");
     //sleutelSprite = loadImage("Key.png");
     //monsterSprite = loadImage("Monster.png");
-    backgroundDD = loadImage("Background.png");
+    background = new PImage[8]; 
+    background[0] = loadImage("Background00.png");
+    background[1] = loadImage("Background01.png");
+    background[2] = loadImage("Background02.png");
+    background[3] = loadImage("Background03.png");
+    background[4] = loadImage("Background04.png");
+    background[5] = loadImage("Background05.png");
+    background[6] = loadImage("Background06.png");
+    background[7] = loadImage("Background07.png");
     Licht = loadImage("Licht.png");
     pixeled = createFont("Pixeled.ttf", 32);
     Start = loadImage("Start.png");
