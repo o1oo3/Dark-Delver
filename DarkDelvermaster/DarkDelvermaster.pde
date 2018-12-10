@@ -26,9 +26,6 @@ ChangeScherm changeScherm;
 SpriteSheet keySheet;
 SpriteSheet playerSheet;
 SpriteSheet monsterSheet;
-ScoreList highscores;
-Score scoreToevoegen;
-Timer startTimer;
 
 
 
@@ -43,14 +40,20 @@ void setup() {
   changeScherm = new ChangeScherm();
   minim = new Minim(this);
   assets = new LoadAssets();
-  highscores = new ScoreList();
-  startTimer = new Timer(0);
-  scoreToevoegen = new Score("0", 0, 0, "00:00");
   textFont(assets.pixeled);
   
 }
 void draw() {
-  background(assets.backgroundDD);
+  PImage background = assets.background[0];
+  for(int i=0; i<player.level; i++){
+    if(i<8){
+      
+    
+  background =assets.background[i];
+    }
+  }
+
+  background(background);
   schermen.mainMenu();
   schermen.gameScherm();
   schermen.gameOverScherm();
