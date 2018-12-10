@@ -57,9 +57,9 @@ class Player {
       }
     }
     if (playerX == monster.monsterX && playerY == monster.monsterY) {
+      highscores.addScore("Player_" + scoreToevoegen.playerIndex++, scoreToevoegen.totalScore,(int)player.level-1, scoreToevoegen.totalTime);
       schermen.welkScherm[1] = false;
       schermen.welkScherm[2] = true;
-      level = 0;
     }
     if (playerX == sleutel.sleutelX && playerY == sleutel.sleutelY) {
       sleutel.amountOfSleutels++;
@@ -69,6 +69,8 @@ class Player {
     if (playerX == eindDeur.deurX && playerY == eindDeur.deurY) {
       println(sleutel.amountOfSleutels);
       if (sleutel.amountOfSleutels == 1) {
+        scoreToevoegen.Totalscore();
+        scoreToevoegen.Totaltime();
         level++;
         changeScherm.changeGameScherm();
       }
@@ -153,7 +155,7 @@ class Player {
     }
   }
   void playerBomb() {
-    if (key == 'x' && bombAmount == 1) {
+    if (key == 'x' && bombAmount >= 1) {
       if ( mazeGeneration.checkOutOfBounts(playerX, playerY-1)) {
         mazeGeneration.topWall[playerX][playerY] = false;
         mazeGeneration.bottomWall[playerX][playerY-1] = false;
@@ -170,7 +172,7 @@ class Player {
         mazeGeneration.leftWall[playerX][playerY] = false;
         mazeGeneration.rightWall[playerX-1][playerY] = false;
       }
-      bombAmount = 0;
+      bombAmount--;
     }
   }
 }

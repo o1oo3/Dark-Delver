@@ -35,6 +35,8 @@ class Schermen {
       keySheet.update();  
       playerSheet.update();
       monsterSheet.update();
+      startTimer.countUp();
+
 
       if (mazeGeneration.amountOfCellsVisited< (mazeGeneration.mazeSizeX*mazeGeneration.mazeSizeY)) {
         fill(0);
@@ -50,6 +52,13 @@ class Schermen {
   }
   void gameOverScherm() {
     if (welkScherm[2]) {
+      fill(255, 255, 255);
+      text("Place    Name      score      level        time", width/2, height/2.5);   textSize(20);
+      for (int iScore = 0; iScore<highscores.getScoreCount(); iScore++){     
+      if (iScore >= 14) break;  //shows top 15 scores   
+      Score score = highscores.getScore(iScore); //fetch a score from the list     
+      text((iScore+1) + "          "+ score.name + "        " + score.totalScore + "   " + score.endlevel + "     " + score.totalTime, width/2, height/2.3 + iScore*20);     //display score
+      }
     }
   }
 }

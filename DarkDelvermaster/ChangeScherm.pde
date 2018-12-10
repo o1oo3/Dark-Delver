@@ -36,6 +36,10 @@ class ChangeScherm {
   } 
   void changeGameoverScherm() {
     if (schermen.welkScherm[2]) {
+      player.level = 0;
+      //startTimer.min = 0;
+      //startTimer.s = 0;
+      //startTimer.ms = 0;
       if (key == 'z') {
         schermen.welkScherm[2] = false;
         schermen.welkScherm[0] = true;
