@@ -58,7 +58,7 @@ class LoadAssets {
   PImage Nextlvl;
   PImage Exit;
   PImage DDlogo1;
-  PImage Ondergrond;
+  
   
 
 
@@ -95,7 +95,7 @@ class LoadAssets {
     playerstep5 = minim.loadSample("playerstep5.wav");
     victory = minim.loadFile("Victory!.mp3");
     //playerSprite = loadImage("Howdy clone.png");
-    Ondergrond = loadImage("72ondergrond.png");
+    
     muurSpriteV = loadImage("MuurConceptV.png");
     muurSpriteH = loadImage("MuurConceptH.png");
     eDeur = loadImage("Deur.png");

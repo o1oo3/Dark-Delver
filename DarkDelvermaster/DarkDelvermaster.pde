@@ -45,7 +45,12 @@ void setup() {
 }
 void draw() {
   PImage background = assets.background[0];
-  for(int i=0; i<player.level; i++){ background =assets.background[i];}
+  for(int i=0; i<player.level; i++){
+  background =assets.background[i];
+  if (i==7){
+  i=6;
+  }
+}
   background(background);
   schermen.mainMenu();
   schermen.gameScherm();
