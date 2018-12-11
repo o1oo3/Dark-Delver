@@ -1,3 +1,4 @@
+
 /*
 deze class maakt de speler aan het laat deze bewegen doormiddel van keypresses, er word in deze class ook collision met Monster,sleutel,einddeur en de maze muren gecontroleerd.
  */

@@ -1,4 +1,5 @@
-/* //<>// //<>//
+
+/* //<>//
 deze class laat op verschillende schermen verschillende functies die nodig zijn om het spel te runnen. 
  */
 
@@ -35,8 +36,9 @@ class Schermen {
       keySheet.update();  
       playerSheet.update();
       monsterSheet.update();
-      startTimer.countUp();
 
+      bombSheet.update();
+      startTimer.countUp();
 
       if (mazeGeneration.amountOfCellsVisited< (mazeGeneration.mazeSizeX*mazeGeneration.mazeSizeY)) {
         fill(0);
@@ -63,3 +65,4 @@ class Schermen {
     }
   }
 }
+

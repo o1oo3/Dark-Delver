@@ -34,6 +34,7 @@ class ChangeScherm {
     if (schermen.welkScherm[1]) {
       assets.victory.rewind();
       assets.victory.play();
+
       if (player.level < 8) {
         mazeGeneration.changeMazeGeneration(72, 10+player.level-1, 10);
       } else {
