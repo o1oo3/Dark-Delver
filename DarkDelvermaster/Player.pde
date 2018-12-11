@@ -30,9 +30,11 @@ class Player {
     //fill(255);
     //ellipse(playerX*mazeGeneration.cellSize+mazeGeneration.cellSize/2+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize+mazeGeneration.cellSize/2, mazeGeneration.cellSize, mazeGeneration.cellSize);
     image(assets.Licht, playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-1715, playerY*mazeGeneration.cellSize-1210);
+    image(assets.BombStatikk, 1200, 635);
     //image(assets.playerSprite, playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
     //spriteSheet = new SpriteSheet("Howdy clone.png", 6);
     playerSheet.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+    
   }
 
   void checkPlayer() {
@@ -154,6 +156,7 @@ class Player {
   }
   void playerBomb() {
     if (key == 'x' && bombAmount == 1) {
+       //bombSheet.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
       if ( mazeGeneration.checkOutOfBounts(playerX, playerY-1)) {
         mazeGeneration.topWall[playerX][playerY] = false;
         mazeGeneration.bottomWall[playerX][playerY-1] = false;

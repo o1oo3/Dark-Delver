@@ -58,6 +58,7 @@ class LoadAssets {
   PImage Nextlvl;
   PImage Exit;
   PImage DDlogo1;
+  PImage BombStatikk;
   
   
 
@@ -94,13 +95,11 @@ class LoadAssets {
     playerstep4 = minim.loadSample("playerstep4.wav");
     playerstep5 = minim.loadSample("playerstep5.wav");
     victory = minim.loadFile("Victory!.mp3");
-    //playerSprite = loadImage("Howdy clone.png");
+    
     
     muurSpriteV = loadImage("MuurConceptV.png");
     muurSpriteH = loadImage("MuurConceptH.png");
     eDeur = loadImage("Deur.png");
-    //sleutelSprite = loadImage("Key.png");
-    //monsterSprite = loadImage("Monster.png");
     background = new PImage[8]; 
     background[0] = loadImage("Background00.png");
     background[1] = loadImage("Background01.png");
@@ -120,6 +119,7 @@ class LoadAssets {
     keySheet = new SpriteSheet("Key.png", 11);
     playerSheet = new SpriteSheet("Howdy clone.png", 6);
     monsterSheet = new SpriteSheet("Monster.png", 8);
-    
+    bombSheet = new SpriteSheet("Bomb.png", 8);
+    BombStatikk = loadImage("BombStatikk.png");
   }
 }

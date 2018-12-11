@@ -26,7 +26,7 @@ ChangeScherm changeScherm;
 SpriteSheet keySheet;
 SpriteSheet playerSheet;
 SpriteSheet monsterSheet;
-
+SpriteSheet bombSheet;
 
 
 void setup() {
