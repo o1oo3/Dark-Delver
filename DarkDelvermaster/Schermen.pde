@@ -35,8 +35,9 @@ class Schermen {
       keySheet.update();  
       playerSheet.update();
       monsterSheet.update();
-      startTimer.countUp();
 
+      bombSheet.update();
+      startTimer.countUp();
 
       if (mazeGeneration.amountOfCellsVisited< (mazeGeneration.mazeSizeX*mazeGeneration.mazeSizeY)) {
         fill(0);

@@ -26,10 +26,10 @@ ChangeScherm changeScherm;
 SpriteSheet keySheet;
 SpriteSheet playerSheet;
 SpriteSheet monsterSheet;
+SpriteSheet bombSheet;
 ScoreList highscores;
 Score scoreToevoegen;
 Timer startTimer;
-
 
 
 void setup() {
