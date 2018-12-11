@@ -57,7 +57,7 @@ class Player {
       }
     }
     if (playerX == monster.monsterX && playerY == monster.monsterY) {
-      highscores.addScore("Player_" + scoreToevoegen.playerIndex++, scoreToevoegen.totalScore,(int)player.level-1, scoreToevoegen.totalTime);
+      highscores.addScore("Player_" + scoreToevoegen.playerIndex++, scoreToevoegen.totalScore, (int)player.level-1, scoreToevoegen.totalTime);
       schermen.welkScherm[1] = false;
       schermen.welkScherm[2] = true;
     }

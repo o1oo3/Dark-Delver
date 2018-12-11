@@ -1,11 +1,11 @@
 /*
 Deze class veranderd verschillende schermen
-en herlaad de nodige functies
-*/
+ en herlaad de nodige functies
+ */
 
 class ChangeScherm {
 
-  
+
   void changeMainMenu() {
     if (schermen.welkScherm[0]) {
       //  Z laat het eerste level
@@ -20,13 +20,19 @@ class ChangeScherm {
         sleutel.changeSleutel();
         monster.changeMonster(60);
         eindDeur.changeEindDeur();
+        startTimer.min = 0;
+        startTimer.s= 0;
+        startTimer.ms = 0;
       }
     }
   }
   void changeGameScherm() {
     if (schermen.welkScherm[1]) {
-     
-      mazeGeneration.changeMazeGeneration(72, 10+player.level-1, 10);
+      if (player.level < 8) {
+        mazeGeneration.changeMazeGeneration(72, 10+player.level-1, 10);
+      } else {
+        mazeGeneration.changeMazeGeneration(72, 17, 10);
+      }
       mazeGeneration.setWalls();
       player.changePlayer();
       sleutel.changeSleutel();
