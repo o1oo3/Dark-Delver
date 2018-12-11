@@ -10,6 +10,10 @@ class ChangeScherm {
     if (schermen.welkScherm[0]) {
       //  Z laat het eerste level
       if (key == 'z') {
+        assets.menutheme.pause();
+        assets.menutheme.rewind();
+        assets.leveltheme.rewind();
+        assets.leveltheme.play();
         schermen.welkScherm[0] = false;
         schermen.welkScherm[1] = true;
 
@@ -25,7 +29,10 @@ class ChangeScherm {
   }
   void changeGameScherm() {
     if (schermen.welkScherm[1]) {
-     
+      assets.leveltheme.pause();
+      assets.leveltheme.rewind();
+      assets.victory.rewind();
+      assets.victory.play();
       mazeGeneration.changeMazeGeneration(72, 10+player.level-1, 10);
       mazeGeneration.setWalls();
       player.changePlayer();
@@ -36,6 +43,10 @@ class ChangeScherm {
   } 
   void changeGameoverScherm() {
     if (schermen.welkScherm[2]) {
+      assets.leveltheme.pause();
+      assets.leveltheme.rewind();
+      assets.gameovertheme.rewind();     
+      assets.gameovertheme.play();
       player.level = 0;
       //startTimer.min = 0;
       //startTimer.s = 0;

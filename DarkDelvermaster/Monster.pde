@@ -1,6 +1,6 @@
 /*
 deze class maakt het monster aan laat dit monster algoritmisch/random door het maze bewegen.
-*/
+ */
 
 class Monster {
   int monsterX;
@@ -13,6 +13,7 @@ class Monster {
 
   int[] monsterCurrentCellSituation;
   int monsterChosenDirection;
+  int monsterAudioPicker;
 
   int monsterTimer;
   int monsterSpeed;
@@ -21,10 +22,10 @@ class Monster {
 
 
   void changeMonster(int monsterSpeed) {
-    do{
-    monsterX = (int)random(0, mazeGeneration.mazeSizeX);
-    monsterY = (int)random(0, mazeGeneration.mazeSizeY);
-    } while(monsterX >= player.playerX-4 && monsterX <= player.playerX+4 && monsterY >= player.playerY-4 && monsterY <= player.playerY+4);
+    do {
+      monsterX = (int)random(0, mazeGeneration.mazeSizeX);
+      monsterY = (int)random(0, mazeGeneration.mazeSizeY);
+    } while (monsterX >= player.playerX-4 && monsterX <= player.playerX+4 && monsterY >= player.playerY-4 && monsterY <= player.playerY+4);
     monsterCameFromTop=false;
     monsterCameFromRight=false;
     monsterCameFromDown=false;
@@ -380,6 +381,7 @@ class Monster {
           monsterCurrentCellSituation[51] = 1; //up CR wall left top
         }
 
+        monsterAudioPicker = round(random(3));
         monsterChosenDirection=round(random(51));              /*PIECE OF CODE SELECTING A RANDOM SITUATION FROM THE 52 PICKERS*/
         while (monsterCurrentCellSituation[monsterChosenDirection]!=1) {     /*LOOP THAT SELECTS A NEW PICKER UNTIL ONE HAS BEEN FOUND THAT IS AVAILABLE.*/
           monsterChosenDirection=round(random(51));
@@ -407,7 +409,16 @@ class Monster {
             || monsterChosenDirection == 41 
             || monsterChosenDirection == 45 
             || monsterChosenDirection == 46 
-            || monsterChosenDirection == 49) { 
+            || monsterChosenDirection == 49) {
+            if (monsterAudioPicker == 0) {
+              assets.monsterstep1.trigger();
+            } else if (monsterAudioPicker == 1) {
+              assets.monsterstep2.trigger();
+            } else if (monsterAudioPicker == 2) {
+              assets.monsterstep3.trigger();
+            } else if (monsterAudioPicker == 3) {
+              assets.monsterstep4.trigger();
+            }
             monsterY-=1;         /*THE STATEMENT WHICH MAKES THE MONSTER MOVE ONE TILE BASED ON X OR Y. (y- UP, y+ DOWN, x- LEFT, x+ RIGHT).*/
             monsterCameFromDown = true;  /*THE CODE DENOTING WHICH DIRECTION THE MONSTER CAME FROM (3 DOWN, 1 UP, 2 RIGHT, 4 LEFT)*/
             //if (monsteraudiopick == 0) {
@@ -440,6 +451,15 @@ class Monster {
           || monsterChosenDirection == 39 
           || monsterChosenDirection == 42 
           || monsterChosenDirection == 50) {
+          if (monsterAudioPicker == 0) {
+            assets.monsterstep1.trigger();
+          } else if (monsterAudioPicker == 1) {
+            assets.monsterstep2.trigger();
+          } else if (monsterAudioPicker == 2) {
+            assets.monsterstep3.trigger();
+          } else if (monsterAudioPicker == 3) {
+            assets.monsterstep4.trigger();
+          }
           monsterY+=1;
           monsterCameFromTop=true;
           //if (monsteraudiopick == 0) {
@@ -470,7 +490,16 @@ class Monster {
           || monsterChosenDirection == 36 
           || monsterChosenDirection == 40 
           || monsterChosenDirection == 43 
-          || monsterChosenDirection == 47 ) {
+          || monsterChosenDirection == 47 ) {            
+          if (monsterAudioPicker == 0) {
+            assets.monsterstep1.trigger();
+          } else if (monsterAudioPicker == 1) {
+            assets.monsterstep2.trigger();
+          } else if (monsterAudioPicker == 2) {
+            assets.monsterstep3.trigger();
+          } else if (monsterAudioPicker == 3) {
+            assets.monsterstep4.trigger();
+          }
           monsterX-=1;
           monsterCameFromRight=true;
           //if (monsteraudiopick == 0) {
@@ -500,7 +529,16 @@ class Monster {
           || monsterChosenDirection == 38 
           || monsterChosenDirection == 44 
           || monsterChosenDirection == 48 
-          || monsterChosenDirection == 51) {
+          || monsterChosenDirection == 51) {            
+          if (monsterAudioPicker == 0) {
+            assets.monsterstep1.trigger();
+          } else if (monsterAudioPicker == 1) {
+            assets.monsterstep2.trigger();
+          } else if (monsterAudioPicker == 2) {
+            assets.monsterstep3.trigger();
+          } else if (monsterAudioPicker == 3) {
+            assets.monsterstep4.trigger();
+          }
           monsterX+=1;
           monsterCameFromLeft=true;
           //if (monsteraudiopick == 0) {
@@ -525,6 +563,5 @@ class Monster {
     //ellipse(monsterX*mazeGeneration.cellSize+mazeGeneration.cellSize/2+mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize+mazeGeneration.cellSize/2, mazeGeneration.cellSize, mazeGeneration.cellSize);
     //image(assets.monsterSprite, monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize, mazeGeneration.cellSize, mazeGeneration.cellSize);
     monsterSheet.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);
- 
-}
+  }
 }

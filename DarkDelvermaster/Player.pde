@@ -12,7 +12,7 @@ class Player {
   boolean playerMoveLeft;
   int level;
   int bombAmount;
-
+  int playerstep;
 
 
   void changePlayer() {
@@ -57,7 +57,7 @@ class Player {
       }
     }
     if (playerX == monster.monsterX && playerY == monster.monsterY) {
-      highscores.addScore("Player_" + scoreToevoegen.playerIndex++, scoreToevoegen.totalScore,(int)player.level-1, scoreToevoegen.totalTime);
+      highscores.addScore("Player_" + scoreToevoegen.playerIndex++, scoreToevoegen.totalScore, (int)player.level-1, scoreToevoegen.totalTime);
       schermen.welkScherm[1] = false;
       schermen.welkScherm[2] = true;
     }
@@ -86,6 +86,16 @@ class Player {
             playerMoveUp = true;
           }
           if (playerMoveUp) {
+            playerstep=round(random(3));
+            if (playerstep == 0) {
+              assets.playerstep1.trigger();
+            } else if (playerstep == 1) {
+              assets.playerstep2.trigger();
+            } else if (playerstep == 2) {
+              assets.playerstep3.trigger();
+            } else if (playerstep == 3) {
+              assets.playerstep4.trigger();
+            }
             playerY--;
             playerMoveUp = false;
 
@@ -101,6 +111,16 @@ class Player {
         }
 
         if (playerMoveRight) {
+          playerstep=round(random(3));
+          if (playerstep == 0) {
+            assets.playerstep1.trigger();
+          } else if (playerstep == 1) {
+            assets.playerstep2.trigger();
+          } else if (playerstep == 2) {
+            assets.playerstep3.trigger();
+          } else if (playerstep == 3) {
+            assets.playerstep4.trigger();
+          }
           playerX++;
           playerMoveRight = false;
 
@@ -113,7 +133,17 @@ class Player {
             playerMoveBottom = true;
           }
         }
-        if (playerMoveBottom) {
+        if (playerMoveBottom) {            
+          playerstep=round(random(3));
+          if (playerstep == 0) {
+            assets.playerstep1.trigger();
+          } else if (playerstep == 1) {
+            assets.playerstep2.trigger();
+          } else if (playerstep == 2) {
+            assets.playerstep3.trigger();
+          } else if (playerstep == 3) {
+            assets.playerstep4.trigger();
+          }
           playerY++;
           playerMoveBottom = false;
 
@@ -127,7 +157,17 @@ class Player {
             playerMoveLeft = true;
           }
         }
-        if (playerMoveLeft) {
+        if (playerMoveLeft) {            
+          playerstep=round(random(3));
+          if (playerstep == 0) {
+            assets.playerstep1.trigger();
+          } else if (playerstep == 1) {
+            assets.playerstep2.trigger();
+          } else if (playerstep == 2) {
+            assets.playerstep3.trigger();
+          } else if (playerstep == 3) {
+            assets.playerstep4.trigger();
+          }
           playerX--;
           playerMoveLeft = false;
 

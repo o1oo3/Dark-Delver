@@ -41,6 +41,8 @@ void setup() {
   minim = new Minim(this);
   assets = new LoadAssets();
   textFont(assets.pixeled);
+  assets.menutheme.rewind();
+  assets.menutheme.play();
   
 }
 void draw() {
