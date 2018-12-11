@@ -1,3 +1,4 @@
+
 /* //<>//
 deze class laat op verschillende schermen verschillende functies die nodig zijn om het spel te runnen. 
  */
@@ -64,3 +65,4 @@ class Schermen {
     }
   }
 }
+
