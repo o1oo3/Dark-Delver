@@ -1,15 +1,15 @@
 /*
 gemaakt door:
-  Oscar Oosterling 500775970
-  Coen Veenker 500779784
-  Tristan Derriks 500754707
-  Hajk Grigorian 500741588
-  IG101-3 2018/2019
-  Project FastenYourSeatbelts
-  
-Dark Delver
-dit is een spel waabij de player door een doolhof moet lopen om naar de uitgang te gaan. 
-*/
+ Oscar Oosterling 500775970
+ Coen Veenker 500779784
+ Tristan Derriks 500754707
+ Hajk Grigorian 500741588
+ IG101-3 2018/2019
+ Project FastenYourSeatbelts
+ 
+ Dark Delver
+ dit is een spel waabij de player door een doolhof moet lopen om naar de uitgang te gaan. 
+ */
 
 import java.util.*;
 import ddf.minim.*;
@@ -26,6 +26,9 @@ ChangeScherm changeScherm;
 SpriteSheet keySheet;
 SpriteSheet playerSheet;
 SpriteSheet monsterSheet;
+ScoreList highscores;
+Score scoreToevoegen;
+Timer startTimer;
 
 
 
@@ -40,26 +43,27 @@ void setup() {
   changeScherm = new ChangeScherm();
   minim = new Minim(this);
   assets = new LoadAssets();
-  textFont(assets.pixeled);
+  highscores = new ScoreList();
+  startTimer = new Timer(0);
+  scoreToevoegen = new Score("0", 0, 0, "00;00");
   assets.menutheme.rewind();
   assets.menutheme.play();
-  
+  textFont(assets.pixeled);
 }
 void draw() {
   PImage background = assets.background[0];
-  for(int i=0; i<player.level; i++){
-    if(i<8){
-      
-    
-  background =assets.background[i];
+  for (int i=0; i<player.level; i++) {
+    if (i<8) {
+
+
+      background =assets.background[i];
     }
   }
 
   background(background);
-  schermen.mainMenu();
+  schermen.mainMenu();  
   schermen.gameScherm();
   schermen.gameOverScherm();
-
 }
 
 void keyPressed() {

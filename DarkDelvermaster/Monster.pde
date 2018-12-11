@@ -380,7 +380,6 @@ class Monster {
           && monsterCameFromTop != false) {
           monsterCurrentCellSituation[51] = 1; //up CR wall left top
         }
-
         monsterAudioPicker = round(random(3));
         monsterChosenDirection=round(random(51));              /*PIECE OF CODE SELECTING A RANDOM SITUATION FROM THE 52 PICKERS*/
         while (monsterCurrentCellSituation[monsterChosenDirection]!=1) {     /*LOOP THAT SELECTS A NEW PICKER UNTIL ONE HAS BEEN FOUND THAT IS AVAILABLE.*/
@@ -410,6 +409,8 @@ class Monster {
             || monsterChosenDirection == 45 
             || monsterChosenDirection == 46 
             || monsterChosenDirection == 49) {
+            monsterY-=1;         /*THE STATEMENT WHICH MAKES THE MONSTER MOVE ONE TILE BASED ON X OR Y. (y- UP, y+ DOWN, x- LEFT, x+ RIGHT).*/
+            monsterCameFromDown = true;  /*THE CODE DENOTING WHICH DIRECTION THE MONSTER CAME FROM (3 DOWN, 1 UP, 2 RIGHT, 4 LEFT)*/
             if (monsterAudioPicker == 0) {
               assets.monsterstep1.trigger();
             } else if (monsterAudioPicker == 1) {
@@ -419,17 +420,6 @@ class Monster {
             } else if (monsterAudioPicker == 3) {
               assets.monsterstep4.trigger();
             }
-            monsterY-=1;         /*THE STATEMENT WHICH MAKES THE MONSTER MOVE ONE TILE BASED ON X OR Y. (y- UP, y+ DOWN, x- LEFT, x+ RIGHT).*/
-            monsterCameFromDown = true;  /*THE CODE DENOTING WHICH DIRECTION THE MONSTER CAME FROM (3 DOWN, 1 UP, 2 RIGHT, 4 LEFT)*/
-            //if (monsteraudiopick == 0) {
-            //  assets.monsterstep1.trigger();
-            //} else if (monsteraudiopick == 1) {
-            //  assets.monsterstep2.trigger();
-            //} else if (monsteraudiopick == 2) {
-            //  assets.monsterstep2.trigger();
-            //} else if (monsteraudiopick == 3) {
-            //  assets.monsterstep3.trigger();
-            //}
           }                      /*THE FORMULA FOR THE DIRECTIONS COMING FROM WHICH SIDE OF THE CELL WE START CHECKING AT, WHICH IS THE TOP SIDE (1)*/
         }
       }
@@ -451,6 +441,8 @@ class Monster {
           || monsterChosenDirection == 39 
           || monsterChosenDirection == 42 
           || monsterChosenDirection == 50) {
+          monsterY+=1;
+          monsterCameFromTop=true;
           if (monsterAudioPicker == 0) {
             assets.monsterstep1.trigger();
           } else if (monsterAudioPicker == 1) {
@@ -460,17 +452,6 @@ class Monster {
           } else if (monsterAudioPicker == 3) {
             assets.monsterstep4.trigger();
           }
-          monsterY+=1;
-          monsterCameFromTop=true;
-          //if (monsteraudiopick == 0) {
-          //  assets.monsterstep1.trigger();
-          //} else if (monsteraudiopick == 1) {
-          //  assets.monsterstep2.trigger();
-          //} else if (monsteraudiopick == 2) {
-          //  assets.monsterstep2.trigger();
-          //} else if (monsteraudiopick == 3) {
-          //  assets.monsterstep3.trigger();
-          //}
         }
       }
 
@@ -490,7 +471,9 @@ class Monster {
           || monsterChosenDirection == 36 
           || monsterChosenDirection == 40 
           || monsterChosenDirection == 43 
-          || monsterChosenDirection == 47 ) {            
+          || monsterChosenDirection == 47 ) {
+          monsterX-=1;
+          monsterCameFromRight=true;
           if (monsterAudioPicker == 0) {
             assets.monsterstep1.trigger();
           } else if (monsterAudioPicker == 1) {
@@ -500,17 +483,6 @@ class Monster {
           } else if (monsterAudioPicker == 3) {
             assets.monsterstep4.trigger();
           }
-          monsterX-=1;
-          monsterCameFromRight=true;
-          //if (monsteraudiopick == 0) {
-          //  assets.monsterstep1.trigger();
-          //} else if (monsteraudiopick == 1) {
-          //  assets.monsterstep2.trigger();
-          //} else if (monsteraudiopick == 2) {
-          //  assets.monsterstep2.trigger();
-          //} else if (monsteraudiopick == 3) {
-          //  assets.monsterstep3.trigger();
-          //}
         }
       }
 
@@ -529,7 +501,9 @@ class Monster {
           || monsterChosenDirection == 38 
           || monsterChosenDirection == 44 
           || monsterChosenDirection == 48 
-          || monsterChosenDirection == 51) {            
+          || monsterChosenDirection == 51) {
+          monsterX+=1;
+          monsterCameFromLeft=true;
           if (monsterAudioPicker == 0) {
             assets.monsterstep1.trigger();
           } else if (monsterAudioPicker == 1) {
@@ -539,17 +513,6 @@ class Monster {
           } else if (monsterAudioPicker == 3) {
             assets.monsterstep4.trigger();
           }
-          monsterX+=1;
-          monsterCameFromLeft=true;
-          //if (monsteraudiopick == 0) {
-          //  assets.monsterstep1.trigger();
-          //} else if (monsteraudiopick == 1) {
-          //  assets.monsterstep2.trigger();
-          //} else if (monsteraudiopick == 2) {
-          //  assets.monsterstep2.trigger();
-          //} else if (monsteraudiopick == 3) {
-          //  assets.monsterstep3.trigger();
-          //}
         }
       }
 

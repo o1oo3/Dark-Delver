@@ -1,15 +1,15 @@
 /*
 Deze class veranderd verschillende schermen
-en herlaad de nodige functies
-*/
+ en herlaad de nodige functies
+ */
 
 class ChangeScherm {
 
-  
+
   void changeMainMenu() {
     if (schermen.welkScherm[0]) {
       //  Z laat het eerste level
-      if (key == 'z') {
+      if (key == 'z') {        
         assets.menutheme.pause();
         assets.menutheme.rewind();
         assets.leveltheme.rewind();
@@ -24,16 +24,21 @@ class ChangeScherm {
         sleutel.changeSleutel();
         monster.changeMonster(60);
         eindDeur.changeEindDeur();
+        startTimer.min = 0;
+        startTimer.s= 0;
+        startTimer.ms = 0;
       }
     }
   }
   void changeGameScherm() {
     if (schermen.welkScherm[1]) {
-      assets.leveltheme.pause();
-      assets.leveltheme.rewind();
       assets.victory.rewind();
       assets.victory.play();
-      mazeGeneration.changeMazeGeneration(72, 10+player.level-1, 10);
+      if (player.level < 8) {
+        mazeGeneration.changeMazeGeneration(72, 10+player.level-1, 10);
+      } else {
+        mazeGeneration.changeMazeGeneration(72, 17, 10);
+      }
       mazeGeneration.setWalls();
       player.changePlayer();
       sleutel.changeSleutel();
@@ -42,7 +47,7 @@ class ChangeScherm {
     }
   } 
   void changeGameoverScherm() {
-    if (schermen.welkScherm[2]) {
+    if (schermen.welkScherm[2]) {      
       assets.leveltheme.pause();
       assets.leveltheme.rewind();
       assets.gameovertheme.rewind();     

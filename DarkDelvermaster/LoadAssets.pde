@@ -1,6 +1,6 @@
 /*
 Deze class laadt alle assets die worden gebruikt in de game.
-*/
+ */
 
 
 class LoadAssets {
@@ -8,7 +8,7 @@ class LoadAssets {
   AudioPlayer leveltheme;
   AudioPlayer chasetheme;
   AudioPlayer gameovertheme;
-  AudioPlayer keypickup;
+  AudioSample keypickup;
   AudioPlayer audio5a;
   AudioPlayer audio6a;
   AudioPlayer audio7a;
@@ -35,7 +35,7 @@ class LoadAssets {
   AudioSample playerstep4;
   AudioSample playerstep5;
   AudioPlayer victory;
-  
+
   PImage playerSprite;
   PImage muurSpriteV;
   PImage muurSpriteH;
@@ -58,8 +58,8 @@ class LoadAssets {
   PImage Nextlvl;
   PImage Exit;
   PImage DDlogo1;
-  
-  
+
+
 
 
   LoadAssets() { /*ATTACHES AN MP3 FILE TO THE ABOVE CREATED CODES*/
@@ -67,7 +67,7 @@ class LoadAssets {
     leveltheme = minim.loadFile("Leveltheme.mp3"); 
     chasetheme = minim.loadFile("ChasedbyMonster.mp3");
     gameovertheme = minim.loadFile("game over jingle.mp3");
-    keypickup = minim.loadFile("Keypickupsound.mp3");
+    keypickup = minim.loadSample("Keypickupsound.mp3");
     audio5a = minim.loadFile("Monsterchase.mp3");
     audio6a = minim.loadFile("Monsterchaseleft.mp3");
     audio7a = minim.loadFile("Monsterchaseright.mp3");
@@ -95,7 +95,7 @@ class LoadAssets {
     playerstep5 = minim.loadSample("playerstep5.wav");
     victory = minim.loadFile("Victory!.mp3");
     //playerSprite = loadImage("Howdy clone.png");
-    
+
     muurSpriteV = loadImage("MuurConceptV.png");
     muurSpriteH = loadImage("MuurConceptH.png");
     eDeur = loadImage("Deur.png");
@@ -120,6 +120,5 @@ class LoadAssets {
     keySheet = new SpriteSheet("Key.png", 11);
     playerSheet = new SpriteSheet("Howdy clone.png", 6);
     monsterSheet = new SpriteSheet("Monster.png", 8);
-    
   }
 }

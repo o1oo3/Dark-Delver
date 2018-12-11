@@ -15,6 +15,7 @@ class Player {
   int playerstep;
 
 
+
   void changePlayer() {
     playerX = (int)random(0, mazeGeneration.mazeSizeX);
     playerY = (int)random(0, mazeGeneration.mazeSizeY);
@@ -62,6 +63,7 @@ class Player {
       schermen.welkScherm[2] = true;
     }
     if (playerX == sleutel.sleutelX && playerY == sleutel.sleutelY) {
+      assets.keypickup.trigger();
       sleutel.amountOfSleutels++;
       sleutel.sleutelX = -1;
       sleutel.sleutelY = -1;
@@ -82,11 +84,7 @@ class Player {
 
       if (key == CODED) {
         if (keyCode == UP) {
-          if (playerChoice[0]) {
-            playerMoveUp = true;
-          }
-          if (playerMoveUp) {
-            playerstep=round(random(3));
+                      playerstep=round(random(3));
             if (playerstep == 0) {
               assets.playerstep1.trigger();
             } else if (playerstep == 1) {
@@ -96,6 +94,10 @@ class Player {
             } else if (playerstep == 3) {
               assets.playerstep4.trigger();
             }
+          if (playerChoice[0]) {
+            playerMoveUp = true;
+          }
+          if (playerMoveUp) {
             playerY--;
             playerMoveUp = false;
 
@@ -105,22 +107,22 @@ class Player {
           }
         }
         if (keyCode == RIGHT) {
+                      playerstep=round(random(3));
+            if (playerstep == 0) {
+              assets.playerstep1.trigger();
+            } else if (playerstep == 1) {
+              assets.playerstep2.trigger();
+            } else if (playerstep == 2) {
+              assets.playerstep3.trigger();
+            } else if (playerstep == 3) {
+              assets.playerstep4.trigger();
+            }
           if (playerChoice[1]) {
             playerMoveRight = true;
           }
         }
 
         if (playerMoveRight) {
-          playerstep=round(random(3));
-          if (playerstep == 0) {
-            assets.playerstep1.trigger();
-          } else if (playerstep == 1) {
-            assets.playerstep2.trigger();
-          } else if (playerstep == 2) {
-            assets.playerstep3.trigger();
-          } else if (playerstep == 3) {
-            assets.playerstep4.trigger();
-          }
           playerX++;
           playerMoveRight = false;
 
@@ -129,21 +131,21 @@ class Player {
           }
         }
         if (keyCode == DOWN) {
+                      playerstep=round(random(3));
+            if (playerstep == 0) {
+              assets.playerstep1.trigger();
+            } else if (playerstep == 1) {
+              assets.playerstep2.trigger();
+            } else if (playerstep == 2) {
+              assets.playerstep3.trigger();
+            } else if (playerstep == 3) {
+              assets.playerstep4.trigger();
+            }
           if (playerChoice[2]) {
             playerMoveBottom = true;
           }
         }
-        if (playerMoveBottom) {            
-          playerstep=round(random(3));
-          if (playerstep == 0) {
-            assets.playerstep1.trigger();
-          } else if (playerstep == 1) {
-            assets.playerstep2.trigger();
-          } else if (playerstep == 2) {
-            assets.playerstep3.trigger();
-          } else if (playerstep == 3) {
-            assets.playerstep4.trigger();
-          }
+        if (playerMoveBottom) {
           playerY++;
           playerMoveBottom = false;
 
@@ -153,21 +155,21 @@ class Player {
         }
 
         if (keyCode == LEFT) {
+                      playerstep=round(random(3));
+            if (playerstep == 0) {
+              assets.playerstep1.trigger();
+            } else if (playerstep == 1) {
+              assets.playerstep2.trigger();
+            } else if (playerstep == 2) {
+              assets.playerstep3.trigger();
+            } else if (playerstep == 3) {
+              assets.playerstep4.trigger();
+            }
           if (playerChoice[3]) {
             playerMoveLeft = true;
           }
         }
-        if (playerMoveLeft) {            
-          playerstep=round(random(3));
-          if (playerstep == 0) {
-            assets.playerstep1.trigger();
-          } else if (playerstep == 1) {
-            assets.playerstep2.trigger();
-          } else if (playerstep == 2) {
-            assets.playerstep3.trigger();
-          } else if (playerstep == 3) {
-            assets.playerstep4.trigger();
-          }
+        if (playerMoveLeft) {
           playerX--;
           playerMoveLeft = false;
 

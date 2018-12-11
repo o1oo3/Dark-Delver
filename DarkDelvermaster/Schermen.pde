@@ -1,4 +1,4 @@
-/* //<>//
+/* //<>// //<>//
 deze class laat op verschillende schermen verschillende functies die nodig zijn om het spel te runnen. 
  */
 
@@ -26,11 +26,11 @@ class Schermen {
       mazeGeneration.checkWalls();
       mazeGeneration.drawWalls();
       eindDeur.drawEindDeur();
-
       player.checkPlayer();
       player.drawPlayer();
       monster.makeMonster();
       monster.drawMonster();
+
       sleutel.drawSleutel();
       keySheet.update();  
       playerSheet.update();
@@ -53,11 +53,12 @@ class Schermen {
   void gameOverScherm() {
     if (welkScherm[2]) {
       fill(255, 255, 255);
-      text("Place    Name      score      level        time", width/2, height/2.5);   textSize(20);
-      for (int iScore = 0; iScore<highscores.getScoreCount(); iScore++){     
-      if (iScore >= 14) break;  //shows top 15 scores   
-      Score score = highscores.getScore(iScore); //fetch a score from the list     
-      text((iScore+1) + "          "+ score.name + "        " + score.totalScore + "   " + score.endlevel + "     " + score.totalTime, width/2, height/2.3 + iScore*20);     //display score
+      text("Place    Name      score      level        time", width/2, height/2.5);   
+      textSize(20);
+      for (int iScore = 0; iScore<highscores.getScoreCount(); iScore++) {     
+        if (iScore >= 14) break;  //shows top 15 scores   
+        Score score = highscores.getScore(iScore); //fetch a score from the list     
+        text((iScore+1) + "          "+ score.name + "        " + score.totalScore + "   " + score.endlevel + "     " + score.totalTime, width/2, height/2.3 + iScore*20);     //display score
       }
     }
   }
