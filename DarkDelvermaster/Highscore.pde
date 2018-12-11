@@ -9,35 +9,34 @@ class Score {
   int scoretime;
   int score;
 
-void Totalscore() {
-if (startTimer.min >= 0) { 
-    scoretime = 60 - startTimer.s;
-  } else {
-    scoretime = 0;
+  void Totalscore() {
+    if (startTimer.min >= 0) { 
+      scoretime = 60 - startTimer.s;
+    } else {
+      scoretime = 0;
+    }
+    score = player.level * 10;
+    totalScore = totalScore + score;
   }
-  score = player.level * 10;
-  totalScore = totalScore + score;
-}
 
-void Totaltime(){
- totalTime = startTimer.min + ":" + startTimer.s; 
-}
+  void Totaltime() {
+    totalTime = startTimer.min + ":" + startTimer.s;
+  }
 
 
 
-  Score(String name,int totalscore, int endlevel, String totaltime) {
+  Score(String name, int totalscore, int endlevel, String totaltime) {
     this.name = name;
     this.totalScore = totalscore;
     this.endlevel = endlevel;
     this.totalTime = totaltime;
-    
   }
 }
 
 class ScoreList {
   ArrayList<Score>scores = new ArrayList<Score>();
   Table scoreTable;
-  
+
   ScoreList() {
     scoreTable = new Table();
     scoreTable.addColumn("name");
@@ -46,7 +45,7 @@ class ScoreList {
     scoreTable.addColumn("time");
   }
 
-  void addScore(String name,int totalscore, int endlevel, String totaltime) {
+  void addScore(String name, int totalscore, int endlevel, String totaltime) {
     scores.add(new Score(name, totalscore, endlevel, totaltime));
     sortScores();
   }
@@ -69,21 +68,20 @@ class ScoreList {
     }
     saveTable(scoreTable, scoreFileName);
   }
-  void load(String scoreFileName){
+  void load(String scoreFileName) {
     scoreTable = loadTable(scoreFileName, "header");
     scores.clear();
-    for(int iScore= 0; iScore<scoreTable.getRowCount(); iScore++){
+    for (int iScore= 0; iScore<scoreTable.getRowCount(); iScore++) {
       TableRow row = scoreTable.getRow(iScore);
       scores.add(new Score(row.getString("name"), row.getInt("score"), row.getInt("level"), row.getString("time")));
     }
   }
+}
+
+
+class HSComperator implements
+  Comparator<Score> {
+  @Override public int compare(Score o1, Score o2) {
+    return o2.totalScore - o1.totalScore;
   }
-  
-  
-  class HSComperator implements
-  Comparator<Score>{
-    @Override public int compare(Score o1, Score o2){
-      return o2.totalScore - o1.totalScore;
-      
-    }  
-  }
+}

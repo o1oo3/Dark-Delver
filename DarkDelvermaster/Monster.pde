@@ -1,6 +1,6 @@
 /*
 deze class maakt het monster aan laat dit monster algoritmisch/random door het maze bewegen.
-*/
+ */
 
 class Monster {
   int monsterX;
@@ -21,10 +21,10 @@ class Monster {
 
 
   void changeMonster(int monsterSpeed) {
-    do{
-    monsterX = (int)random(0, mazeGeneration.mazeSizeX);
-    monsterY = (int)random(0, mazeGeneration.mazeSizeY);
-    } while(monsterX >= player.playerX-4 && monsterX <= player.playerX+4 && monsterY >= player.playerY-4 && monsterY <= player.playerY+4);
+    do {
+      monsterX = (int)random(0, mazeGeneration.mazeSizeX);
+      monsterY = (int)random(0, mazeGeneration.mazeSizeY);
+    } while (monsterX >= player.playerX-4 && monsterX <= player.playerX+4 && monsterY >= player.playerY-4 && monsterY <= player.playerY+4);
     monsterCameFromTop=false;
     monsterCameFromRight=false;
     monsterCameFromDown=false;
@@ -525,6 +525,5 @@ class Monster {
     //ellipse(monsterX*mazeGeneration.cellSize+mazeGeneration.cellSize/2+mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize+mazeGeneration.cellSize/2, mazeGeneration.cellSize, mazeGeneration.cellSize);
     //image(assets.monsterSprite, monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize, mazeGeneration.cellSize, mazeGeneration.cellSize);
     monsterSheet.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);
- 
-}
+  }
 }

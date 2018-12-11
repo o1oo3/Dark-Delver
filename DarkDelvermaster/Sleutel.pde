@@ -1,6 +1,6 @@
 /*
 deze class maakt de sleutel aan.
-*/
+ */
 
 class Sleutel {
   int sleutelX;
@@ -19,6 +19,5 @@ class Sleutel {
     //rect(sleutelX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, sleutelY*mazeGeneration.cellSize, mazeGeneration.cellSize, mazeGeneration.cellSize);
     //image(assets.sleutelSprite, sleutelX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, sleutelY*mazeGeneration.cellSize, mazeGeneration.cellSize, mazeGeneration.cellSize);
     keySheet.draw(sleutelX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, sleutelY*mazeGeneration.cellSize);
-    
   }
 }

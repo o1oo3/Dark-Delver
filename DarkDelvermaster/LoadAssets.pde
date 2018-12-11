@@ -1,6 +1,6 @@
 /*
 Deze class laadt alle assets die worden gebruikt in de game.
-*/
+ */
 
 
 class LoadAssets {
@@ -35,7 +35,7 @@ class LoadAssets {
   AudioSample playerstep4;
   AudioSample playerstep5;
   AudioPlayer victory;
-  
+
   PImage playerSprite;
   PImage muurSpriteV;
   PImage muurSpriteH;
@@ -58,8 +58,8 @@ class LoadAssets {
   PImage Nextlvl;
   PImage Exit;
   PImage DDlogo1;
-  
-  
+
+
 
 
   LoadAssets() { /*ATTACHES AN MP3 FILE TO THE ABOVE CREATED CODES*/
@@ -95,7 +95,7 @@ class LoadAssets {
     playerstep5 = minim.loadSample("playerstep5.wav");
     victory = minim.loadFile("Victory!.mp3");
     //playerSprite = loadImage("Howdy clone.png");
-    
+
     muurSpriteV = loadImage("MuurConceptV.png");
     muurSpriteH = loadImage("MuurConceptH.png");
     eDeur = loadImage("Deur.png");
@@ -120,6 +120,5 @@ class LoadAssets {
     keySheet = new SpriteSheet("Key.png", 11);
     playerSheet = new SpriteSheet("Howdy clone.png", 6);
     monsterSheet = new SpriteSheet("Monster.png", 8);
-    
   }
 }
