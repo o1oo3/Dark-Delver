@@ -26,6 +26,9 @@ ChangeScherm changeScherm;
 SpriteSheet keySheet;
 SpriteSheet playerSheet;
 SpriteSheet monsterSheet;
+ScoreList highscores;
+Score scoreToevoegen;
+Timer startTimer;
 
 
 
@@ -40,6 +43,10 @@ void setup() {
   changeScherm = new ChangeScherm();
   minim = new Minim(this);
   assets = new LoadAssets();
+    highscores = new ScoreList();
+  startTimer = new Timer(0);
+  scoreToevoegen = new Score("0", 0, 0,"00;00");
+
   textFont(assets.pixeled);
   
 }
