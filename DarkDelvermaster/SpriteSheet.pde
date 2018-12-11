@@ -8,7 +8,7 @@ class SpriteSheet {
   int frameWidth;
   int frameHeight;
   int nFrames = 0;
-  
+
 
   // Contructor neemt naam, image source en de nummer/hoeveelheid frames
   SpriteSheet(String imageName, int nFrames) {
@@ -18,9 +18,9 @@ class SpriteSheet {
     frameHeight = sourceImage.height;
     drawImage = createImage(frameWidth, sourceImage.height, ARGB);
   }
- 
 
-  
+
+
   // update() selecteert de image om te teken gebasseerd op fps en frames al getekend
   void update() {
     if ((frameCount % fps) == 0)    
@@ -28,7 +28,7 @@ class SpriteSheet {
 
     drawImage.copy(sourceImage, 
       frame*frameWidth, 0, frameWidth, sourceImage.height, 
-      0, 0, frameWidth, sourceImage.height);    
+      0, 0, frameWidth, sourceImage.height);
   }
   void draw(float x, float y) {
     image(drawImage, x, y);

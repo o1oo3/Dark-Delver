@@ -1,6 +1,6 @@
 /*
 deze class maakt de einddeur aan.
-*/
+ */
 
 class EindDeur {
   int deurX;
@@ -14,9 +14,8 @@ class EindDeur {
   }
 
   void drawEindDeur() {
-   // fill(128, 0, 128);
+    // fill(128, 0, 128);
     //rect(deurX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, deurY*mazeGeneration.cellSize, mazeGeneration.cellSize, mazeGeneration.cellSize);
-    image(assets.eDeur,deurX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX,deurY*mazeGeneration.cellSize,mazeGeneration.cellSize,mazeGeneration.cellSize);
-
+    image(assets.eDeur, deurX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, deurY*mazeGeneration.cellSize, mazeGeneration.cellSize, mazeGeneration.cellSize);
   }
 }

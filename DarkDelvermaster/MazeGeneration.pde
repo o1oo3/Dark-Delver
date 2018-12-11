@@ -1,6 +1,6 @@
 /*
 Deze class genereerd een random maze.
-*/
+ */
 
 class MazeGeneration {
   int cellSize;
@@ -65,24 +65,24 @@ class MazeGeneration {
     for (int r = 0; r<mazeSizeX; r++) {
       for (int q = 0; q<mazeSizeY; q++) {
         if (topWall[r][q]) {
-       //   stroke(255, 0, 0); //RED
-       //   line(r*cellSize+offsetToCenterX, q*cellSize, r*cellSize+cellSize+offsetToCenterX, q*cellSize);
-          image(assets.muurSpriteH,r*cellSize+offsetToCenterX,q*cellSize);
+          //   stroke(255, 0, 0); //RED
+          //   line(r*cellSize+offsetToCenterX, q*cellSize, r*cellSize+cellSize+offsetToCenterX, q*cellSize);
+          image(assets.muurSpriteH, r*cellSize+offsetToCenterX, q*cellSize);
         }
         if (rightWall[r][q]) {
-      //    stroke(0, 255, 0); //GREEN
-        //  line(r*cellSize+cellSize+offsetToCenterX, q*cellSize, r*cellSize+cellSize+offsetToCenterX, q*cellSize+cellSize);
+          //    stroke(0, 255, 0); //GREEN
+          //  line(r*cellSize+cellSize+offsetToCenterX, q*cellSize, r*cellSize+cellSize+offsetToCenterX, q*cellSize+cellSize);
           image(assets.muurSpriteV, r*cellSize+cellSize+offsetToCenterX, q*cellSize);
         }
         if (bottomWall[r][q]) {
-       //   stroke(0, 0, 255); //BLUE
-        //  line(r*cellSize+cellSize+offsetToCenterX, q*cellSize+cellSize, r*cellSize+offsetToCenterX, q*cellSize+cellSize);
-          image(assets.muurSpriteH,r*cellSize+offsetToCenterX,q*cellSize+cellSize-4);
+          //   stroke(0, 0, 255); //BLUE
+          //  line(r*cellSize+cellSize+offsetToCenterX, q*cellSize+cellSize, r*cellSize+offsetToCenterX, q*cellSize+cellSize);
+          image(assets.muurSpriteH, r*cellSize+offsetToCenterX, q*cellSize+cellSize-4);
         }
         if (leftWall[r][q]) {
-        //  stroke(255, 255, 0); //YELLOW
-         // line(r*cellSize+offsetToCenterX, q*cellSize+cellSize, r*cellSize+offsetToCenterX, q*cellSize);
-          image(assets.muurSpriteV,r*cellSize+offsetToCenterX-4,q*cellSize);
+          //  stroke(255, 255, 0); //YELLOW
+          // line(r*cellSize+offsetToCenterX, q*cellSize+cellSize, r*cellSize+offsetToCenterX, q*cellSize);
+          image(assets.muurSpriteV, r*cellSize+offsetToCenterX-4, q*cellSize);
         }
       }
     }
