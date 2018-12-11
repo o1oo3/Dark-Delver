@@ -1,3 +1,4 @@
+
 /*
 Deze class laadt alle assets die worden gebruikt in de game.
  */
@@ -8,7 +9,7 @@ class LoadAssets {
   AudioPlayer leveltheme;
   AudioPlayer chasetheme;
   AudioPlayer gameovertheme;
-  AudioPlayer keypickup;
+  AudioSample keypickup;
   AudioPlayer audio5a;
   AudioPlayer audio6a;
   AudioPlayer audio7a;
@@ -67,7 +68,7 @@ class LoadAssets {
     leveltheme = minim.loadFile("Leveltheme.mp3"); 
     chasetheme = minim.loadFile("ChasedbyMonster.mp3");
     gameovertheme = minim.loadFile("game over jingle.mp3");
-    keypickup = minim.loadFile("Keypickupsound.mp3");
+    keypickup = minim.loadSample("Keypickupsound.mp3");
     audio5a = minim.loadFile("Monsterchase.mp3");
     audio6a = minim.loadFile("Monsterchaseleft.mp3");
     audio7a = minim.loadFile("Monsterchaseright.mp3");

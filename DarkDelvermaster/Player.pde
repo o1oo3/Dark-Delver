@@ -1,3 +1,4 @@
+
 /*
 deze class maakt de speler aan het laat deze bewegen doormiddel van keypresses, er word in deze class ook collision met Monster,sleutel,einddeur en de maze muren gecontroleerd.
  */
@@ -12,6 +13,7 @@ class Player {
   boolean playerMoveLeft;
   int level;
   int bombAmount;
+  int playerstep;
 
 
 
@@ -30,11 +32,9 @@ class Player {
     //fill(255);
     //ellipse(playerX*mazeGeneration.cellSize+mazeGeneration.cellSize/2+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize+mazeGeneration.cellSize/2, mazeGeneration.cellSize, mazeGeneration.cellSize);
     image(assets.Licht, playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-1715, playerY*mazeGeneration.cellSize-1210);
-    image(assets.BombStatikk, 1200, 635);
     //image(assets.playerSprite, playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
     //spriteSheet = new SpriteSheet("Howdy clone.png", 6);
     playerSheet.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
-    
   }
 
   void checkPlayer() {
@@ -64,6 +64,7 @@ class Player {
       schermen.welkScherm[2] = true;
     }
     if (playerX == sleutel.sleutelX && playerY == sleutel.sleutelY) {
+      assets.keypickup.trigger();
       sleutel.amountOfSleutels++;
       sleutel.sleutelX = -1;
       sleutel.sleutelY = -1;
@@ -84,6 +85,16 @@ class Player {
 
       if (key == CODED) {
         if (keyCode == UP) {
+                      playerstep=round(random(3));
+            if (playerstep == 0) {
+              assets.playerstep1.trigger();
+            } else if (playerstep == 1) {
+              assets.playerstep2.trigger();
+            } else if (playerstep == 2) {
+              assets.playerstep3.trigger();
+            } else if (playerstep == 3) {
+              assets.playerstep4.trigger();
+            }
           if (playerChoice[0]) {
             playerMoveUp = true;
           }
@@ -97,6 +108,16 @@ class Player {
           }
         }
         if (keyCode == RIGHT) {
+                      playerstep=round(random(3));
+            if (playerstep == 0) {
+              assets.playerstep1.trigger();
+            } else if (playerstep == 1) {
+              assets.playerstep2.trigger();
+            } else if (playerstep == 2) {
+              assets.playerstep3.trigger();
+            } else if (playerstep == 3) {
+              assets.playerstep4.trigger();
+            }
           if (playerChoice[1]) {
             playerMoveRight = true;
           }
@@ -111,6 +132,16 @@ class Player {
           }
         }
         if (keyCode == DOWN) {
+                      playerstep=round(random(3));
+            if (playerstep == 0) {
+              assets.playerstep1.trigger();
+            } else if (playerstep == 1) {
+              assets.playerstep2.trigger();
+            } else if (playerstep == 2) {
+              assets.playerstep3.trigger();
+            } else if (playerstep == 3) {
+              assets.playerstep4.trigger();
+            }
           if (playerChoice[2]) {
             playerMoveBottom = true;
           }
@@ -125,6 +156,16 @@ class Player {
         }
 
         if (keyCode == LEFT) {
+                      playerstep=round(random(3));
+            if (playerstep == 0) {
+              assets.playerstep1.trigger();
+            } else if (playerstep == 1) {
+              assets.playerstep2.trigger();
+            } else if (playerstep == 2) {
+              assets.playerstep3.trigger();
+            } else if (playerstep == 3) {
+              assets.playerstep4.trigger();
+            }
           if (playerChoice[3]) {
             playerMoveLeft = true;
           }
@@ -157,10 +198,6 @@ class Player {
     }
   }
   void playerBomb() {
-
-    if (key == 'x' && bombAmount == 1) {
-       //bombSheet.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
-    }
     if (key == 'x' && bombAmount >= 1) {
       if ( mazeGeneration.checkOutOfBounts(playerX, playerY-1)) {
         mazeGeneration.topWall[playerX][playerY] = false;

@@ -1,3 +1,4 @@
+
 /*
 gemaakt door:
  Oscar Oosterling 500775970
@@ -46,7 +47,8 @@ void setup() {
   highscores = new ScoreList();
   startTimer = new Timer(0);
   scoreToevoegen = new Score("0", 0, 0, "00;00");
-
+  assets.menutheme.rewind();
+  assets.menutheme.play();
   textFont(assets.pixeled);
 }
 void draw() {
