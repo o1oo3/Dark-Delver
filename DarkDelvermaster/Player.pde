@@ -160,7 +160,7 @@ class Player {
 
     if (key == 'x' && bombAmount == 1) {
        //bombSheet.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
-
+    }
     if (key == 'x' && bombAmount >= 1) {
       if ( mazeGeneration.checkOutOfBounts(playerX, playerY-1)) {
         mazeGeneration.topWall[playerX][playerY] = false;
