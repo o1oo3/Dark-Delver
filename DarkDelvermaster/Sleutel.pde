@@ -9,8 +9,10 @@ class Sleutel {
   int amountOfSleutels;
 
   void changeSleutel() {
+    do{
     sleutelX = (int)random(0, mazeGeneration.mazeSizeX);
-    sleutelY = (int)random(0, mazeGeneration.mazeSizeY);
+    sleutelY = (int)random(0, mazeGeneration.mazeSizeY);}
+    while(sleutelX >= player.playerX-4 && sleutelX <= player.playerX+4 && sleutelY >= player.playerY-4 && sleutelY <= player.playerY+4);
     amountOfSleutels = 0;
   }
 

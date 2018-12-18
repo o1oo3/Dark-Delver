@@ -1,6 +1,6 @@
 
 /*
-gemaakt door:
+Made by:
  Oscar Oosterling 500775970
  Coen Veenker 500779784
  Tristan Derriks 500754707
@@ -9,7 +9,7 @@ gemaakt door:
  Project FastenYourSeatbelts
  
  Dark Delver
- dit is een spel waabij de player door een doolhof moet lopen om naar de uitgang te gaan. 
+ This is a game where a player needs to find a key and get to the exit while a monster is roaming around 
  */
 
 import java.util.*;
@@ -63,8 +63,6 @@ void draw() {
   PImage background = assets.imagebackground[0];
   for (int i=0; i<player.level; i++) {
     if (i<8) {
-
-
       background =assets.imagebackground[i];
     }
   }
