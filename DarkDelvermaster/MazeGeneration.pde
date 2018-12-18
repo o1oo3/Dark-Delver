@@ -70,6 +70,10 @@ The method setWalls makes every wall of every cell active/true
         rightWall[i][j] = true;
         bottomWall[i][j] = true;
         leftWall[i][j] = true;
+        //topWall[i][j] =false;
+        //rightWall[i][j] = false;
+        //bottomWall[i][j] = false;
+        //leftWall[i][j] = false;
       }
     }
   }
@@ -82,16 +86,16 @@ the method drawWalls draws all the walls that are set to 'true'
     for (int r = 0; r<mazeSizeX; r++) {
       for (int q = 0; q<mazeSizeY; q++) {
         if (topWall[r][q]) {
-          image(assets.muurSpriteH, r*cellSize+offsetToCenterX, q*cellSize);
+          image(assets.imagemuurSpriteH, r*cellSize+offsetToCenterX, q*cellSize);
         }
         if (rightWall[r][q]) {
-          image(assets.muurSpriteV, r*cellSize+cellSize+offsetToCenterX, q*cellSize);
+          image(assets.imagemuurSpriteV, r*cellSize+cellSize+offsetToCenterX, q*cellSize);
         }
         if (bottomWall[r][q]) {
-          image(assets.muurSpriteH, r*cellSize+offsetToCenterX, q*cellSize+cellSize-4);
+          image(assets.imagemuurSpriteH, r*cellSize+offsetToCenterX, q*cellSize+cellSize-4);
         }
         if (leftWall[r][q]) {
-          image(assets.muurSpriteV, r*cellSize+offsetToCenterX-4, q*cellSize);
+          image(assets.imagemuurSpriteV, r*cellSize+offsetToCenterX-4, q*cellSize);
         }
       }
     }

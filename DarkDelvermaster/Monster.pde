@@ -5,6 +5,8 @@ deze class maakt het monster aan laat dit monster algoritmisch/random door het m
 class Monster {
   int monsterX;
   int monsterY;
+  int monster2X;
+  int monster2Y;
 
   boolean monsterCameFromTop;
   boolean monsterCameFromRight;
@@ -25,7 +27,13 @@ class Monster {
     do {
       monsterX = (int)random(0, mazeGeneration.mazeSizeX);
       monsterY = (int)random(0, mazeGeneration.mazeSizeY);
-    } while (monsterX >= player.playerX-4 && monsterX <= player.playerX+4 && monsterY >= player.playerY-4 && monsterY <= player.playerY+4);
+    } while (monsterX >= player.playerX-4 && monsterX <= player.playerX+4 && monsterY >= player.playerY-4 && monsterY <= player.playerY+4 
+      && monster2.monsterX >= monster.monsterX-4 && monster2.monsterY >= monster.monsterY-4 && monster2.monsterX <= monster.monsterX+4 && monster2.monsterY <= monster.monsterY +4
+      && monster3.monsterX >= monster.monsterX-4 && monster3.monsterY >= monster.monsterY-4 && monster3.monsterX <= monster.monsterX+4 && monster3.monsterY <= monster.monsterY +4
+      && monster3.monsterX >= monster2.monsterX-4 && monster3.monsterY >= monster2.monsterY-4 && monster3.monsterX <= monster2.monsterX+4 && monster3.monsterY <= monster2.monsterY +4
+      && monster.monsterX >= monster2.monsterX-4 && monster.monsterY >= monster2.monsterY-4 && monster.monsterX <= monster2.monsterX+4 && monster.monsterY <= monster2.monsterY +4
+      && monster.monsterX >= monster3.monsterX-4 && monster.monsterY >= monster3.monsterY-4 && monster.monsterX <= monster3.monsterX+4 && monster.monsterY <= monster3.monsterY +4
+      && monster2.monsterX >= monster3.monsterX-4 && monster2.monsterY >= monster3.monsterY-4 && monster2.monsterX <= monster3.monsterX+4 && monster2.monsterY <= monster3.monsterY +4);
     monsterCameFromTop=false;
     monsterCameFromRight=false;
     monsterCameFromDown=false;
@@ -412,13 +420,13 @@ class Monster {
             monsterY-=1;         /*THE STATEMENT WHICH MAKES THE MONSTER MOVE ONE TILE BASED ON X OR Y. (y- UP, y+ DOWN, x- LEFT, x+ RIGHT).*/
             monsterCameFromDown = true;  /*THE CODE DENOTING WHICH DIRECTION THE MONSTER CAME FROM (3 DOWN, 1 UP, 2 RIGHT, 4 LEFT)*/
             if (monsterAudioPicker == 0) {
-              assets.monsterstep1.trigger();
+              assets.audiomonsterstep1.trigger();
             } else if (monsterAudioPicker == 1) {
-              assets.monsterstep2.trigger();
+              assets.audiomonsterstep2.trigger();
             } else if (monsterAudioPicker == 2) {
-              assets.monsterstep3.trigger();
+              assets.audiomonsterstep3.trigger();
             } else if (monsterAudioPicker == 3) {
-              assets.monsterstep4.trigger();
+              assets.audiomonsterstep4.trigger();
             }
           }                      /*THE FORMULA FOR THE DIRECTIONS COMING FROM WHICH SIDE OF THE CELL WE START CHECKING AT, WHICH IS THE TOP SIDE (1)*/
         }
@@ -444,13 +452,13 @@ class Monster {
           monsterY+=1;
           monsterCameFromTop=true;
           if (monsterAudioPicker == 0) {
-            assets.monsterstep1.trigger();
+            assets.audiomonsterstep1.trigger();
           } else if (monsterAudioPicker == 1) {
-            assets.monsterstep2.trigger();
+            assets.audiomonsterstep2.trigger();
           } else if (monsterAudioPicker == 2) {
-            assets.monsterstep3.trigger();
+            assets.audiomonsterstep3.trigger();
           } else if (monsterAudioPicker == 3) {
-            assets.monsterstep4.trigger();
+            assets.audiomonsterstep4.trigger();
           }
         }
       }
@@ -475,13 +483,13 @@ class Monster {
           monsterX-=1;
           monsterCameFromRight=true;
           if (monsterAudioPicker == 0) {
-            assets.monsterstep1.trigger();
+            assets.audiomonsterstep1.trigger();
           } else if (monsterAudioPicker == 1) {
-            assets.monsterstep2.trigger();
+            assets.audiomonsterstep2.trigger();
           } else if (monsterAudioPicker == 2) {
-            assets.monsterstep3.trigger();
+            assets.audiomonsterstep3.trigger();
           } else if (monsterAudioPicker == 3) {
-            assets.monsterstep4.trigger();
+            assets.audiomonsterstep4.trigger();
           }
         }
       }
@@ -505,13 +513,13 @@ class Monster {
           monsterX+=1;
           monsterCameFromLeft=true;
           if (monsterAudioPicker == 0) {
-            assets.monsterstep1.trigger();
+            assets.audiomonsterstep1.trigger();
           } else if (monsterAudioPicker == 1) {
-            assets.monsterstep2.trigger();
+            assets.audiomonsterstep2.trigger();
           } else if (monsterAudioPicker == 2) {
-            assets.monsterstep3.trigger();
+            assets.audiomonsterstep3.trigger();
           } else if (monsterAudioPicker == 3) {
-            assets.monsterstep4.trigger();
+            assets.audiomonsterstep4.trigger();
           }
         }
       }
