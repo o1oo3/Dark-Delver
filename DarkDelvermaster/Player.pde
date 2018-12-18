@@ -72,13 +72,13 @@ class Player {
       sleutel.sleutelX = -1; //THESE TWO LINES REMOVE THE KEY FROM THE LEVEL
       sleutel.sleutelY = -1;
     }
-    if (playerX == sleutel2.sleutelX && playerY == sleutel2.sleutelY) {
+    if (playerX == sleutel2.sleutelX && playerY == sleutel2.sleutelY && player.level >= 5) {
       assets.audiokeypickup.trigger();
       sleutel.amountOfSleutels++;
       sleutel2.sleutelX = -1;
       sleutel2.sleutelY = -1;
     }
-    if (playerX == sleutel3.sleutelX && playerY == sleutel3.sleutelY) {
+    if (playerX == sleutel3.sleutelX && playerY == sleutel3.sleutelY && player.level >= 10) {
       assets.audiokeypickup.trigger();
       sleutel.amountOfSleutels++;
       sleutel3.sleutelX = -1;
@@ -232,6 +232,7 @@ class Player {
   }
   void playerBomb() {
     if (key == 'x' && bombAmount >= 1) {
+      assets.audioBomb.trigger();
       //bombSheet.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
       if ( mazeGeneration.checkOutOfBounts(playerX, playerY-1)) {
         mazeGeneration.topWall[playerX][playerY] = false;
