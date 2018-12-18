@@ -56,6 +56,10 @@ class MazeGeneration {
         rightWall[i][j] = true;
         bottomWall[i][j] = true;
         leftWall[i][j] = true;
+        //topWall[i][j] =false;
+        //rightWall[i][j] = false;
+        //bottomWall[i][j] = false;
+        //leftWall[i][j] = false;
       }
     }
   }
@@ -67,22 +71,22 @@ class MazeGeneration {
         if (topWall[r][q]) {
           //   stroke(255, 0, 0); //RED
           //   line(r*cellSize+offsetToCenterX, q*cellSize, r*cellSize+cellSize+offsetToCenterX, q*cellSize);
-          image(assets.muurSpriteH, r*cellSize+offsetToCenterX, q*cellSize);
+          image(assets.imagemuurSpriteH, r*cellSize+offsetToCenterX, q*cellSize);
         }
         if (rightWall[r][q]) {
           //    stroke(0, 255, 0); //GREEN
           //  line(r*cellSize+cellSize+offsetToCenterX, q*cellSize, r*cellSize+cellSize+offsetToCenterX, q*cellSize+cellSize);
-          image(assets.muurSpriteV, r*cellSize+cellSize+offsetToCenterX, q*cellSize);
+          image(assets.imagemuurSpriteV, r*cellSize+cellSize+offsetToCenterX, q*cellSize);
         }
         if (bottomWall[r][q]) {
           //   stroke(0, 0, 255); //BLUE
           //  line(r*cellSize+cellSize+offsetToCenterX, q*cellSize+cellSize, r*cellSize+offsetToCenterX, q*cellSize+cellSize);
-          image(assets.muurSpriteH, r*cellSize+offsetToCenterX, q*cellSize+cellSize-4);
+          image(assets.imagemuurSpriteH, r*cellSize+offsetToCenterX, q*cellSize+cellSize-4);
         }
         if (leftWall[r][q]) {
           //  stroke(255, 255, 0); //YELLOW
           // line(r*cellSize+offsetToCenterX, q*cellSize+cellSize, r*cellSize+offsetToCenterX, q*cellSize);
-          image(assets.muurSpriteV, r*cellSize+offsetToCenterX-4, q*cellSize);
+          image(assets.imagemuurSpriteV, r*cellSize+offsetToCenterX-4, q*cellSize);
         }
       }
     }

@@ -20,7 +20,11 @@ LoadAssets assets;
 MazeGeneration mazeGeneration;
 Player player;
 Monster monster;
+Monster monster2;
+Monster monster3;
 Sleutel sleutel;
+Sleutel sleutel2;
+Sleutel sleutel3;
 EindDeur eindDeur;
 Schermen schermen;
 ChangeScherm changeScherm;
@@ -37,8 +41,12 @@ void setup() {
   size(1280, 720);
   mazeGeneration = new MazeGeneration();
   player = new Player();
-  monster = new Monster();
-  sleutel= new Sleutel();
+  monster = new Monster(); //CALLS THE METHOD FOR CREATING A MONSTER
+  monster2 = new Monster();
+  monster3 = new Monster();
+  sleutel= new Sleutel(); //CALLS THE METHOD FOR CREATING A KEY
+  sleutel2 = new Sleutel();
+  sleutel3 = new Sleutel();
   eindDeur = new EindDeur();
   schermen = new Schermen();
   changeScherm = new ChangeScherm();
@@ -47,17 +55,17 @@ void setup() {
   highscores = new ScoreList();
   startTimer = new Timer(0);
   scoreToevoegen = new Score("0", 0, 0, "00;00");
-  assets.menutheme.rewind();
-  assets.menutheme.play();
-  textFont(assets.pixeled);
+  assets.audiomenutheme.rewind();
+  assets.audiomenutheme.play();
+  textFont(assets.fontpixeled);
 }
 void draw() {
-  PImage background = assets.background[0];
+  PImage background = assets.imagebackground[0];
   for (int i=0; i<player.level; i++) {
     if (i<8) {
 
 
-      background =assets.background[i];
+      background =assets.imagebackground[i];
     }
   }
 

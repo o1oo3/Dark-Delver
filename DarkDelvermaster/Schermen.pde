@@ -1,5 +1,5 @@
-
-/* //<>//
+ //<>//
+/*
 deze class laat op verschillende schermen verschillende functies die nodig zijn om het spel te runnen. 
  */
 
@@ -15,7 +15,7 @@ class Schermen {
 
   void mainMenu() {
     if (welkScherm[0]) {
-      image(assets.DDlogo1, CENTER-2, CENTER-2);
+      image(assets.imageDDlogo1, CENTER-2, CENTER-2);
       text = "Press Z to Start";
       textAlign(CENTER);
       text(text, width/2, height-height/10);
@@ -29,10 +29,22 @@ class Schermen {
       eindDeur.drawEindDeur();
       player.checkPlayer();
       player.drawPlayer();
-      monster.makeMonster();
-      monster.drawMonster();
+      monster.makeMonster(); //MAKES SURE THE MONSTER IS ABLE TO MOVE ALONG WITH THE ALGORITHM
+      monster.drawMonster(); //MAKES SURE THE MONSTER HAS AN IMAGE ON THE SCREEN
+      if (player.level >= 5) { //CHECKS WETHER THE LEVEL IS APPROPRIATELY HIGH TO CREATE A NEW MONSTER
+        monster2.makeMonster();
+        monster2.drawMonster();
+      }
+      if (player.level >= 10) {
+        monster3.makeMonster();
+        monster3.drawMonster();
+      }
 
-      sleutel.drawSleutel();
+      sleutel.drawSleutel(); //MAKES SURE THE KEY IS VISIBLE ON THE SCREEN
+      if(player.level >= 5){ //CHECKS WETHER THE LEVEL IS APPROPRIATELY HIGH TO CREATE A NEW KEY
+      sleutel2.drawSleutel();}
+      if(player.level >= 10){
+      sleutel3.drawSleutel();}
       keySheet.update();  
       playerSheet.update();
       monsterSheet.update();
@@ -65,4 +77,3 @@ class Schermen {
     }
   }
 }
-
