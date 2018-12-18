@@ -27,6 +27,7 @@ class ChangeScherm {
         startTimer.min = 0;
         startTimer.s= 0;
         startTimer.ms = 0;
+        
       }
     }
   }

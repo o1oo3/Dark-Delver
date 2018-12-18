@@ -55,8 +55,6 @@ void draw() {
   PImage background = assets.background[0];
   for (int i=0; i<player.level; i++) {
     if (i<8) {
-
-
       background =assets.background[i];
     }
   }
