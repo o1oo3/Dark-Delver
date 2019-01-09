@@ -14,7 +14,7 @@ class Player {
   int level;
   int bombAmount;
   int playerstep;
-
+  boolean playerFirstDraw;
 
 
   void changePlayer() {
@@ -26,27 +26,49 @@ class Player {
     playerMoveBottom = false;
     playerMoveLeft = false;
     bombAmount = 1;
+    playerFirstDraw = true;
   }
 
   void drawPlayer() {
+   if (playerFirstDraw == true){
+   playerSheetDown.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+   }
+   
+    if (key == CODED) {
+      playerFirstDraw = false;
+        if (keyCode == UP) {
+          playerSheetUp.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);          
+        }
+        if (keyCode == RIGHT) {
+          playerSheetRight.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);          
+        }
+         if (keyCode == DOWN) {
+           playerSheetDown.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+         }
+         if (keyCode == LEFT) {
+           playerSheetLeft.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+         }
+    }
     //fill(255);
     //ellipse(playerX*mazeGeneration.cellSize+mazeGeneration.cellSize/2+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize+mazeGeneration.cellSize/2, mazeGeneration.cellSize, mazeGeneration.cellSize);
-    image(assets.imageLicht, playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-1715, playerY*mazeGeneration.cellSize-1210);
-    image(assets.imageBombStatikk, 1200, 635);
+    image(assets.imageLight, playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-1715, playerY*mazeGeneration.cellSize-1210);
+    //image(assets.imageBombStatikk, 1200, 635);
     //image(assets.playerSprite, playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
     //spriteSheet = new SpriteSheet("Howdy clone.png", 6);
-    playerSheet.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+    //playerSheetDown.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
   }
 
   void checkPlayer() {
     if ( mazeGeneration.checkOutOfBounts(playerX, playerY-1)) {
       if (!mazeGeneration.topWall[playerX][playerY]) {
         playerChoice[0]=true;
+        
       }
     }
     if (mazeGeneration.checkOutOfBounts(playerX+1, playerY)) {
       if (!mazeGeneration.rightWall[playerX][playerY]) {
         playerChoice[1]=true;
+        
       }
     }
     if (mazeGeneration.checkOutOfBounts(playerX, playerY+1)) {
@@ -133,6 +155,7 @@ class Player {
           }
           if (playerMoveUp) {
             playerY--;
+            //playerSheetUp.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
             playerMoveUp = false;
 
             for (int i = 0; i<playerChoice.length; i++) {
@@ -158,6 +181,7 @@ class Player {
 
         if (playerMoveRight) {
           playerX++;
+          
           playerMoveRight = false;
 
           for (int i = 0; i<playerChoice.length; i++) {
@@ -181,6 +205,7 @@ class Player {
         }
         if (playerMoveBottom) {
           playerY++;
+          
           playerMoveBottom = false;
 
           for (int i = 0; i<playerChoice.length; i++) {
@@ -205,6 +230,7 @@ class Player {
         }
         if (playerMoveLeft) {
           playerX--;
+          
           playerMoveLeft = false;
 
 
@@ -233,7 +259,7 @@ class Player {
   void playerBomb() {
     if (key == 'x' && bombAmount >= 1) {
       assets.audioBomb.trigger();
-      //bombSheet.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+      
       if ( mazeGeneration.checkOutOfBounts(playerX, playerY-1)) {
         mazeGeneration.topWall[playerX][playerY] = false;
         mazeGeneration.bottomWall[playerX][playerY-1] = false;
@@ -250,6 +276,7 @@ class Player {
         mazeGeneration.leftWall[playerX][playerY] = false;
         mazeGeneration.rightWall[playerX-1][playerY] = false;
       }
+      bombSheet.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
       bombAmount--;
     }
   }

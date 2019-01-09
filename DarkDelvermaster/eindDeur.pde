@@ -16,6 +16,6 @@ class EindDeur {
   void drawEindDeur() {
     // fill(128, 0, 128);
     //rect(deurX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, deurY*mazeGeneration.cellSize, mazeGeneration.cellSize, mazeGeneration.cellSize);
-    image(assets.imageeDeur, deurX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, deurY*mazeGeneration.cellSize, mazeGeneration.cellSize, mazeGeneration.cellSize);
+    image(assets.imageDoor, deurX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, deurY*mazeGeneration.cellSize, mazeGeneration.cellSize, mazeGeneration.cellSize);
   }
 }

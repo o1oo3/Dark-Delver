@@ -1,4 +1,4 @@
- //<>//
+ //<>// //<>//
 /*
 deze class laat op verschillende schermen verschillende functies die nodig zijn om het spel te runnen. 
  */
@@ -15,7 +15,7 @@ class Schermen {
 
   void mainMenu() {
     if (welkScherm[0]) {
-      image(assets.imageDDlogo1, CENTER-2, CENTER-2);
+      image(assets.imageDDlogo, CENTER-2, CENTER-2);
       text = "Press Z to Start";
       textAlign(CENTER);
       text(text, width/2, height-height/10);
@@ -46,8 +46,14 @@ class Schermen {
       if(player.level >= 10){
       sleutel3.drawSleutel();}
       keySheet.update();  
-      playerSheet.update();
-      monsterSheet.update();
+      playerSheetDown.update();
+      playerSheetUp.update();
+      playerSheetLeft.update();
+      playerSheetRight.update();
+      monsterSheetDown.update();
+      monsterSheetUp.update();
+      monsterSheetLeft.update();
+      monsterSheetRight.update();
 
       bombSheet.update();
       startTimer.countUp();

@@ -42,7 +42,7 @@ class LoadAssets {
   PImage imagemuurSpriteV;
   PImage imagemuurSpriteH;
   PImage imagesleutelSprite;
-  PImage imageeDeur;
+  PImage imageDoor;
   PImage imagemonsterSprite;
   PImage[] imagebackground;
   PImage imageBackground00;
@@ -53,13 +53,13 @@ class LoadAssets {
   PImage imageBackground05;
   PImage imageBackground06;
   PImage imageBackground07;
-  PImage imageLicht;
+  PImage imageLight;
   PFont fontpixeled;
   PImage imageStart;
   PImage imageRetry;
   PImage imageNextlvl;
   PImage imageExit;
-  PImage imageDDlogo1;
+  PImage imageDDlogo;
   PImage imageBombStatikk;
 
 
@@ -100,7 +100,7 @@ class LoadAssets {
 
     imagemuurSpriteV = loadImage("MuurConceptV.png");
     imagemuurSpriteH = loadImage("MuurConceptH.png");
-    imageeDeur = loadImage("Deur.png");
+    imageDoor = loadImage("Deur.png");
     imagebackground = new PImage[8]; 
     imagebackground[0] = loadImage("Background00.png");
     imagebackground[1] = loadImage("Background01.png");
@@ -110,18 +110,24 @@ class LoadAssets {
     imagebackground[5] = loadImage("Background05.png");
     imagebackground[6] = loadImage("Background06.png");
     imagebackground[7] = loadImage("Background07.png");
-    imageLicht = loadImage("Licht.png");
+    imageLight = loadImage("Licht.png");
     fontpixeled = createFont("Pixeled.ttf", 32);
     imageStart = loadImage("Start.png");
     imageRetry = loadImage("Retry.png");
-    imageNextlvl = loadImage("Next Level.png");
     imageExit = loadImage("Exit.png");
-    imageDDlogo1 = loadImage("DD logo1.png");
+    imageDDlogo = loadImage("DDlogo.png");
     keySheet = new SpriteSheet("Key.png", 11);
-    playerSheet = new SpriteSheet("Howdy clone.png", 6);
-    monsterSheet = new SpriteSheet("Monster.png", 8);
+    playerSheetDown = new SpriteSheet("playerSpriteDown.png", 6);
+    playerSheetLeft = new SpriteSheet("playerSpriteLeft.png", 6);
+    playerSheetRight = new SpriteSheet("playerSpriteRight.png", 6);
+    playerSheetUp = new SpriteSheet("playerSpriteUp.png", 6);
+    monsterSheetDown = new SpriteSheet("monsterSpriteDown.png", 8);
+    monsterSheetLeft = new SpriteSheet("monsterSpriteLeft.png", 8);
+    monsterSheetRight = new SpriteSheet("monsterSpriteRight.png", 8);
+    monsterSheetUp = new SpriteSheet("monsterSpriteUp.png", 8);
     bombSheet = new SpriteSheet("Bomb.png", 8);
     imageBombStatikk = loadImage("BombStatikk.png");
+    
 
   }
 }
