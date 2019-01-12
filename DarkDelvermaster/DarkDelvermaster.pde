@@ -26,6 +26,7 @@ Sleutel sleutel;
 Sleutel sleutel2;
 Sleutel sleutel3;
 EindDeur eindDeur;
+Bomb bomb;
 Schermen schermen;
 ChangeScherm changeScherm;
 SpriteSheet keySheet;
@@ -43,6 +44,7 @@ Score scoreToevoegen;
 Timer startTimer;
 
 
+
 void setup() {
   size(1280, 720);
   mazeGeneration = new MazeGeneration();
@@ -54,6 +56,7 @@ void setup() {
   sleutel2 = new Sleutel();
   sleutel3 = new Sleutel();
   eindDeur = new EindDeur();
+  bomb = new Bomb();
   schermen = new Schermen();
   changeScherm = new ChangeScherm();
   minim = new Minim(this);

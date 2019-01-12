@@ -1,4 +1,4 @@
- //<>// //<>//
+//<>// //<>//
 /*
 deze class laat op verschillende schermen verschillende functies die nodig zijn om het spel te runnen. 
  */
@@ -27,6 +27,7 @@ class Schermen {
       mazeGeneration.checkWalls();
       mazeGeneration.drawWalls();
       eindDeur.drawEindDeur();
+      bomb.drawBomb();
       player.checkPlayer();
       player.drawPlayer();
       monster.makeMonster(); //MAKES SURE THE MONSTER IS ABLE TO MOVE ALONG WITH THE ALGORITHM
@@ -41,10 +42,12 @@ class Schermen {
       }
 
       sleutel.drawSleutel(); //MAKES SURE THE KEY IS VISIBLE ON THE SCREEN
-      if(player.level >= 5){ //CHECKS WETHER THE LEVEL IS APPROPRIATELY HIGH TO CREATE A NEW KEY
-      sleutel2.drawSleutel();}
-      if(player.level >= 10){
-      sleutel3.drawSleutel();}
+      if (player.level >= 5) { //CHECKS WETHER THE LEVEL IS APPROPRIATELY HIGH TO CREATE A NEW KEY
+        sleutel2.drawSleutel();
+      }
+      if (player.level >= 10) {
+        sleutel3.drawSleutel();
+      }
       keySheet.update();  
       playerSheetDown.update();
       playerSheetUp.update();
@@ -54,7 +57,7 @@ class Schermen {
       monsterSheetUp.update();
       monsterSheetLeft.update();
       monsterSheetRight.update();
-
+      bomb.explodeBomb();
       bombSheet.update();
       startTimer.countUp();
 

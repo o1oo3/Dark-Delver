@@ -28,7 +28,7 @@ class Player {
     playerMoveLeft = false;
     bombAmount = 1;
     playerFirstDraw = true;
-    
+    playerDirection = 0;
   }
 
   void drawPlayer() {
@@ -82,7 +82,6 @@ class Player {
     //playerSheetDown.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
     if (bombAmount >= 1) {
       image(assets.imageBombStatikk, 1200, 635);
-      text(bombAmount, 1195, 635);
     }
   }
 
@@ -283,27 +282,8 @@ class Player {
     }
   }
   void playerBomb() {
-    if (key == 'x' && bombAmount >= 1) {
-      assets.audioBomb.trigger();
-      //image(assets.imageBombStatikk, playerX*mazeGeneration.cellSize, playerY*mazeGeneration.cellSize);
-      if ( mazeGeneration.checkOutOfBounts(playerX, playerY-1)) {
-        mazeGeneration.topWall[playerX][playerY] = false;
-        mazeGeneration.bottomWall[playerX][playerY-1] = false;
-      }
-      if (mazeGeneration.checkOutOfBounts(playerX+1, playerY)) {
-        mazeGeneration.rightWall[playerX][playerY] = false;
-        mazeGeneration.leftWall[playerX+1][playerY] = false;
-      }
-      if (mazeGeneration.checkOutOfBounts(playerX, playerY+1)) {
-        mazeGeneration.bottomWall[playerX][playerY] = false;
-        mazeGeneration.topWall[playerX][playerY+1] = false;
-      }
-      if (mazeGeneration.checkOutOfBounts(playerX-1, playerY)) {
-        mazeGeneration.leftWall[playerX][playerY] = false;
-        mazeGeneration.rightWall[playerX-1][playerY] = false;
-      }
-      bombSheet.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
-      bombAmount--;
+    if (key == 'x' && bombAmount >= 1 && schermen.welkScherm[1]) {
+      bomb.changeBomb(playerX, playerY);
     }
   }
 }
