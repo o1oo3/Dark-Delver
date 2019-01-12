@@ -46,6 +46,7 @@ class ChangeScherm {
         mazeGeneration.changeMazeGeneration(72, 17, 10);
       }
       mazeGeneration.setWalls();
+      bomb.resetBomb();
       player.changePlayer();
       sleutel.changeSleutel(); //UPDATES THE INFORMATION FOR INDIVIDUAL KEYS, SUCH AS LOCATION.
       sleutel2.changeSleutel();
