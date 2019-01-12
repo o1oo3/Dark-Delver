@@ -15,6 +15,7 @@ class Player {
   int bombAmount;
   int playerstep;
   boolean playerFirstDraw;
+  int playerDirection;
 
 
   void changePlayer() {
@@ -27,28 +28,51 @@ class Player {
     playerMoveLeft = false;
     bombAmount = 1;
     playerFirstDraw = true;
+    
   }
 
   void drawPlayer() {
-   if (playerFirstDraw == true){
-   playerSheetDown.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
-   }
-   
-    if (key == CODED) {
-      playerFirstDraw = false;
-        if (keyCode == UP) {
-          playerSheetUp.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);          
-        }
-        if (keyCode == RIGHT) {
-          playerSheetRight.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);          
-        }
-         if (keyCode == DOWN) {
-           playerSheetDown.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
-         }
-         if (keyCode == LEFT) {
-           playerSheetLeft.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
-         }
+    if (playerFirstDraw == true) {
+      playerSheetDown.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
     }
+
+    // if (key == CODED) {
+
+    if (  playerDirection == 1) {
+
+      playerSheetUp.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+    }
+    if (playerDirection == 2) {
+      playerSheetRight.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+    } 
+    if (playerDirection == 3) {
+      playerSheetDown.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+    } 
+    if (playerDirection == 4) {
+      playerSheetLeft.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+    }
+
+    if (keyCode == UP) {
+      playerSheetUp.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+      playerDirection = 1;
+      playerFirstDraw = false;
+    }
+    if (keyCode == RIGHT) {
+      playerSheetRight.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);  
+      playerDirection = 2;
+      playerFirstDraw = false;
+    }
+    if (keyCode == DOWN) {
+      playerSheetDown.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+      playerDirection = 3;
+      playerFirstDraw = false;
+    }
+    if (keyCode == LEFT) {
+      playerSheetLeft.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+      playerDirection = 4;
+      playerFirstDraw = false;
+    }
+    //  }
     //fill(255);
     //ellipse(playerX*mazeGeneration.cellSize+mazeGeneration.cellSize/2+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize+mazeGeneration.cellSize/2, mazeGeneration.cellSize, mazeGeneration.cellSize);
     image(assets.imageLight, playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-1715, playerY*mazeGeneration.cellSize-1210);
@@ -56,19 +80,21 @@ class Player {
     //image(assets.playerSprite, playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
     //spriteSheet = new SpriteSheet("Howdy clone.png", 6);
     //playerSheetDown.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+    if (bombAmount >= 1) {
+      image(assets.imageBombStatikk, 1200, 635);
+      text(bombAmount, 1195, 635);
+    }
   }
 
   void checkPlayer() {
     if ( mazeGeneration.checkOutOfBounts(playerX, playerY-1)) {
       if (!mazeGeneration.topWall[playerX][playerY]) {
         playerChoice[0]=true;
-        
       }
     }
     if (mazeGeneration.checkOutOfBounts(playerX+1, playerY)) {
       if (!mazeGeneration.rightWall[playerX][playerY]) {
         playerChoice[1]=true;
-        
       }
     }
     if (mazeGeneration.checkOutOfBounts(playerX, playerY+1)) {
@@ -82,8 +108,8 @@ class Player {
       }
     }
     if ((playerX == monster.monsterX && playerY == monster.monsterY) //CHECKS WETHER THE PLAYER IS STANDING ON A MONSTER AND WETHER THE MONSTER SHOULD BE SPAWNED IN THE CURRENT LEVEL
-    || (playerX == monster2.monsterX && playerY == monster2.monsterY && player.level >= 5) 
-    || (playerX == monster3.monsterX && playerY == monster3.monsterY && player.level >= 10)) {
+      || (playerX == monster2.monsterX && playerY == monster2.monsterY && player.level >= 5) 
+      || (playerX == monster3.monsterX && playerY == monster3.monsterY && player.level >= 10)) {
       highscores.addScore("Player_" + scoreToevoegen.playerIndex++, scoreToevoegen.totalScore, (int)player.level-1, scoreToevoegen.totalTime); //ADDS THE PLAYER'S TOTAL SCORE TO THE HIGHSCOREBOARD
       schermen.welkScherm[1] = false; //TURNS OFF THE SCREEN FOR THE LEVEL
       schermen.welkScherm[2] = true; //TURNS ON THE GAME OVER SCREEN
@@ -181,7 +207,7 @@ class Player {
 
         if (playerMoveRight) {
           playerX++;
-          
+
           playerMoveRight = false;
 
           for (int i = 0; i<playerChoice.length; i++) {
@@ -205,7 +231,7 @@ class Player {
         }
         if (playerMoveBottom) {
           playerY++;
-          
+
           playerMoveBottom = false;
 
           for (int i = 0; i<playerChoice.length; i++) {
@@ -230,7 +256,7 @@ class Player {
         }
         if (playerMoveLeft) {
           playerX--;
-          
+
           playerMoveLeft = false;
 
 
@@ -259,7 +285,7 @@ class Player {
   void playerBomb() {
     if (key == 'x' && bombAmount >= 1) {
       assets.audioBomb.trigger();
-      
+      //image(assets.imageBombStatikk, playerX*mazeGeneration.cellSize, playerY*mazeGeneration.cellSize);
       if ( mazeGeneration.checkOutOfBounts(playerX, playerY-1)) {
         mazeGeneration.topWall[playerX][playerY] = false;
         mazeGeneration.bottomWall[playerX][playerY-1] = false;

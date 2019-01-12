@@ -24,7 +24,7 @@ class ChangeScherm {
         sleutel.changeSleutel(); //UPDATES THE INFORMATION FOR INDIVIDUAL KEYS, SUCH AS LOCATION.
         sleutel2.changeSleutel(); 
         sleutel3.changeSleutel();
-        monster.changeMonster(60); //UPDATES THE INFORMATION FOR INDIVIDUAL MONSTERS, SUCH AS START LOCATION AND PROXIMITY TO EACH OTHER AND THE PLAYER.
+        monster.changeMonster(40); //UPDATES THE INFORMATION FOR INDIVIDUAL MONSTERS, SUCH AS START LOCATION AND PROXIMITY TO EACH OTHER AND THE PLAYER.
         monster2.changeMonster(60);
         monster3.changeMonster(45); // THE NUMBER BETWEEN THE CONSTRUCTOR IS THE FREQUENCY AT WHICH THE MONSTER MAKES DECISIONS, IN THIS CASE EVERY 45 FRAMES.
         eindDeur.changeEindDeur();
@@ -50,9 +50,19 @@ class ChangeScherm {
       sleutel.changeSleutel(); //UPDATES THE INFORMATION FOR INDIVIDUAL KEYS, SUCH AS LOCATION.
       sleutel2.changeSleutel();
       sleutel3.changeSleutel();
-      monster.changeMonster(60); //UPDATES THE INFORMATION FOR INDIVIDUAL MONSTERS, SUCH AS START LOCATION AND PROXIMITY TO EACH OTHER AND THE PLAYER.
-      monster2.changeMonster(60);
-      monster3.changeMonster(45); // THE NUMBER BETWEEN THE CONSTRUCTOR IS THE FREQUENCY AT WHICH THE MONSTER MAKES DECISIONS, IN THIS CASE EVERY 45 FRAMES.
+      if(player.level > 15){
+        monster.changeMonster(15);
+      }
+      else{
+      monster.changeMonster(60-player.level*3);}//UPDATES THE INFORMATION FOR INDIVIDUAL MONSTERS, SUCH AS START LOCATION AND PROXIMITY TO EACH OTHER AND THE PLAYER.
+      if(player.level > 20){
+       monster2.changeMonster(15);
+      } else{
+      monster2.changeMonster(75-player.level*3);}
+      if(player.level > 25){
+      monster3.changeMonster(15); 
+      } else{
+      monster3.changeMonster(90-player.level*3); }// THE NUMBER BETWEEN THE CONSTRUCTOR IS THE FREQUENCY AT WHICH THE MONSTER MAKES DECISIONS, IN THIS CASE EVERY 45 FRAMES.
       eindDeur.changeEindDeur();
     }
   } 
