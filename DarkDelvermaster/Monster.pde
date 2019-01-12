@@ -535,6 +535,9 @@ class Monster {
     }
   }
   void drawMonster() {
+    if(monsterCameFromTop ==false && monsterCameFromLeft == false && monsterCameFromRight == false && monsterCameFromDown==false){
+     monsterSheetDown.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);
+    }
     if (monsterCameFromTop == true){
       monsterSheetDown.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);      
     }
