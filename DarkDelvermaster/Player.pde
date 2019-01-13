@@ -110,6 +110,10 @@ class Player {
       || (playerX == monster2.monsterX && playerY == monster2.monsterY && player.level >= 5) 
       || (playerX == monster3.monsterX && playerY == monster3.monsterY && player.level >= 10)) {
       highscores.addScore("Player_" + scoreToevoegen.playerIndex++, scoreToevoegen.totalScore, (int)player.level-1, scoreToevoegen.totalTime); //ADDS THE PLAYER'S TOTAL SCORE TO THE HIGHSCOREBOARD
+      assets.audioleveltheme.pause();
+      assets.audioleveltheme.rewind();
+      assets.audiogameovertheme.play();
+      assets.audiomonsterkill.play();
       schermen.welkScherm[1] = false; //TURNS OFF THE SCREEN FOR THE LEVEL
       schermen.welkScherm[2] = true; //TURNS ON THE GAME OVER SCREEN
     }
@@ -283,6 +287,7 @@ class Player {
   }
   void playerBomb() {
     if (key == 'x' && bombAmount >= 1 && schermen.welkScherm[1]) {
+      assets.audioFuse.play();
       bomb.changeBomb(playerX, playerY);
     }
   }

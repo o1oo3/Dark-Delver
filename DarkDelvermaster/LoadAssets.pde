@@ -37,6 +37,7 @@ class LoadAssets {
   AudioSample audioplayerstep5;
   AudioPlayer audiovictory;
   AudioSample audioBomb;
+  AudioPlayer audioFuse;
 
   PImage imageplayerSprite;
   PImage imagemuurSpriteV;
@@ -97,6 +98,7 @@ class LoadAssets {
     audioplayerstep5 = minim.loadSample("playerstep5.wav");
     audiovictory = minim.loadFile("Victory!.mp3");
     audioBomb = minim.loadSample("Bombsound.mp3");
+    audioFuse = minim.loadFile("fusesoundeffect.mp3");
 
     imagemuurSpriteV = loadImage("MuurConceptV.png");
     imagemuurSpriteH = loadImage("MuurConceptH.png");

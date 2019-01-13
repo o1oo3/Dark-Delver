@@ -39,13 +39,15 @@ class Bomb {
         }
         assets.audioBomb.trigger();
         bombExplosion = false;
+        assets.audioFuse.rewind();
+        assets.audioFuse.pause();
       }
     }
   }
-  void resetBomb(){
-  bombExplosion = false;
+  void resetBomb() {
+    bombExplosion = false;
   }
-  
+
 
 
 
