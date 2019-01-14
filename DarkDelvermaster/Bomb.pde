@@ -14,6 +14,7 @@ class Bomb {
   }
 
   void drawBomb() {
+
     if (millis() < fuse + 1650) {
       bombSheet.draw(bombX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX+20, bombY*mazeGeneration.cellSize+10);
     }

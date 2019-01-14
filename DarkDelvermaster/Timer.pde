@@ -17,8 +17,7 @@ class Timer {
 
   void countUp() {
     if ((keyCode == LEFT || keyCode == DOWN || keyCode == RIGHT || keyCode == UP)|| key == 'x') {
-
-
+      fill(255);
 
       if (ms<=119) {
         //text(h + ":" + min, width/2, 30);

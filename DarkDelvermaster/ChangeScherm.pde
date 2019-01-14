@@ -13,7 +13,7 @@ class ChangeScherm {
         assets.audiomenutheme.pause();
         assets.audiomenutheme.rewind();
         assets.audioleveltheme.rewind();
-        assets.audioleveltheme.play();
+        assets.audioleveltheme.loop();
         schermen.welkScherm[0] = false;
         schermen.welkScherm[1] = true;
 
@@ -31,7 +31,6 @@ class ChangeScherm {
         startTimer.min = 0;
         startTimer.s= 0;
         startTimer.ms = 0;
-        
       }
     }
   }
@@ -51,33 +50,36 @@ class ChangeScherm {
       sleutel.changeSleutel(); //UPDATES THE INFORMATION FOR INDIVIDUAL KEYS, SUCH AS LOCATION.
       sleutel2.changeSleutel();
       sleutel3.changeSleutel();
-      if(player.level > 15){
+      if (player.level > 15) {
         monster.changeMonster(15);
+      } else {
+        monster.changeMonster(60-player.level*3);
+      }//UPDATES THE INFORMATION FOR INDIVIDUAL MONSTERS, SUCH AS START LOCATION AND PROXIMITY TO EACH OTHER AND THE PLAYER.
+      if (player.level > 20) {
+        monster2.changeMonster(15);
+      } else {
+        monster2.changeMonster(75-player.level*3);
       }
-      else{
-      monster.changeMonster(60-player.level*3);}//UPDATES THE INFORMATION FOR INDIVIDUAL MONSTERS, SUCH AS START LOCATION AND PROXIMITY TO EACH OTHER AND THE PLAYER.
-      if(player.level > 20){
-       monster2.changeMonster(15);
-      } else{
-      monster2.changeMonster(75-player.level*3);}
-      if(player.level > 25){
-      monster3.changeMonster(15); 
-      } else{
-      monster3.changeMonster(90-player.level*3); }// THE NUMBER BETWEEN THE CONSTRUCTOR IS THE FREQUENCY AT WHICH THE MONSTER MAKES DECISIONS, IN THIS CASE EVERY 45 FRAMES.
+      if (player.level > 25) {
+        monster3.changeMonster(15);
+      } else {
+        monster3.changeMonster(90-player.level*3);
+      }// THE NUMBER BETWEEN THE CONSTRUCTOR IS THE FREQUENCY AT WHICH THE MONSTER MAKES DECISIONS, IN THIS CASE EVERY 45 FRAMES.
       eindDeur.changeEindDeur();
+     
     }
   } 
   void changeGameoverScherm() {
-    if (schermen.welkScherm[2]) {      
-      assets.audioleveltheme.pause();
-      assets.audioleveltheme.rewind();
-      assets.audiogameovertheme.rewind();     
-      assets.audiogameovertheme.play();
+    if (schermen.welkScherm[2]) {         
       player.level = 0;
-      //startTimer.min = 0;
-      //startTimer.s = 0;
-      //startTimer.ms = 0;
+      startTimer.min = 0;
+      startTimer.s = 0;
+      startTimer.ms = 0;
+      scoreToevoegen.totalTime = "00:00";
+      scoreToevoegen.totalScore = 0;
       if (key == 'z') {
+        assets.audiogameovertheme.pause();
+        assets.audiogameovertheme.rewind();
         schermen.welkScherm[2] = false;
         schermen.welkScherm[0] = true;
       }
