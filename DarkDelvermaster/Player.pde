@@ -285,6 +285,7 @@ class Player {
   }
   void playerBomb() {
     if (key == 'x' && bombAmount >= 1 && schermen.welkScherm[1]) {
+      assets.audioFuse.play();
       bomb.changeBomb(playerX, playerY);
     }
   }

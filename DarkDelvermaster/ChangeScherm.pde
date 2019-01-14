@@ -78,6 +78,7 @@ class ChangeScherm {
       scoreToevoegen.totalTime = "00:00";
       scoreToevoegen.totalScore = 0;
       if (key == 'z') {
+        assets.audiomenutheme.loop();
         assets.audiogameovertheme.pause();
         assets.audiogameovertheme.rewind();
         schermen.welkScherm[2] = false;
