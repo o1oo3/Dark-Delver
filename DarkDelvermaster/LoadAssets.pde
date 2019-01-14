@@ -62,6 +62,7 @@ class LoadAssets {
   PImage imageExit;
   PImage imageDDlogo;
   PImage imageBombStatikk;
+  //PImage imageBombExplosion;
 
 
 
@@ -127,6 +128,7 @@ class LoadAssets {
     monsterSheetRight = new SpriteSheet("monsterSpriteRight.png", 8);
     monsterSheetUp = new SpriteSheet("monsterSpriteUp.png", 8);
     bombSheet = new SpriteSheet("Bomb.png", 8);
+    explosionSheet = new SpriteSheet("Explosie.png", 6);
     imageBombStatikk = loadImage("BombStatikk.png");
     imageGameOver = loadImage("GameOver.png");
     
