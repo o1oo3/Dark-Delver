@@ -109,9 +109,8 @@ class Player {
     if ((playerX == monster.monsterX && playerY == monster.monsterY) //CHECKS WETHER THE PLAYER IS STANDING ON A MONSTER AND WETHER THE MONSTER SHOULD BE SPAWNED IN THE CURRENT LEVEL
       || (playerX == monster2.monsterX && playerY == monster2.monsterY && player.level >= 5) 
       || (playerX == monster3.monsterX && playerY == monster3.monsterY && player.level >= 10)) {
-      highscores.addScore("Player_" + scoreToevoegen.playerIndex++, scoreToevoegen.totalScore, (int)player.level-1, scoreToevoegen.totalTime); //ADDS THE PLAYER'S TOTAL SCORE TO THE HIGHSCOREBOARD
       schermen.welkScherm[1] = false; //TURNS OFF THE SCREEN FOR THE LEVEL
-      schermen.welkScherm[2] = true; //TURNS ON THE GAME OVER SCREEN
+      schermen.welkScherm[3] = true; //TURNS ON THE GAME OVER SCREEN
       assets.audiogameovertheme.play();
       assets.audioleveltheme.pause();
       assets.audioleveltheme.rewind();
