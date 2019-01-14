@@ -44,55 +44,55 @@ class Flame {
   void update() {
     velocity.add(acceleration);
     position.add(velocity);
-    lifespan -= 25.0;
+    lifespan -= 44.0;
   }
 
   // Display Method
   void particles() {
-    if (player.playerFirstDraw == true) {
-      stroke(100, 0, 0, lifespan);
-      fill(232, 0, 0, lifespan);
-      ellipse(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-588, position.y+player.playerY*mazeGeneration.cellSize-18, 3, 3);
+    if (player.playerFirstDraw == true || (player.playerDirection == 3) ) {
+      stroke(200, 0, 0, lifespan);
+      fill(255, 0, 0, lifespan);
+      ellipse(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-588, position.y+player.playerY*mazeGeneration.cellSize-19, 2, 3);
 
-      stroke(100, 0, 0, lifespan);
-      fill(255, 200, 0, lifespan);
-      rect(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-588, position.y+player.playerY*mazeGeneration.cellSize-18, 3, 3);
+      stroke(255, 100, 0, lifespan);
+      fill(235, 220, 0, lifespan);
+      rect(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-588, position.y+player.playerY*mazeGeneration.cellSize-19, 2, 2);
     }
-    if (keyCode == UP) {
-      stroke(100, 0, 0, lifespan);
-      fill(232, 0, 0, lifespan);
-      ellipse(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-622, position.y+player.playerY*mazeGeneration.cellSize-18, 3, 3);
+    if (keyCode == UP || (player.playerDirection == 1)) {
+      stroke(200, 0, 0, lifespan);
+      fill(255, 0, 0, lifespan);
+      ellipse(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-622, position.y+player.playerY*mazeGeneration.cellSize-19, 2, 3);
 
-      stroke(100, 0, 0, lifespan);
-      fill(255, 200, 0, lifespan);
-      rect(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-622, position.y+player.playerY*mazeGeneration.cellSize-18, 3, 3);
+      stroke(255, 100, 0, lifespan);
+      fill(235, 220, 0, lifespan);
+      rect(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-622, position.y+player.playerY*mazeGeneration.cellSize-19, 3, 3);
     }
-    if (keyCode == RIGHT) {
-      stroke(100, 0, 0, lifespan);
-      fill(232, 0, 0, lifespan);
-      ellipse(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-594, position.y+player.playerY*mazeGeneration.cellSize-18, 3, 3);
+    if (keyCode == RIGHT || (player.playerDirection == 2)) {
+      stroke(200, 0, 0, lifespan);
+      fill(255, 0, 0, lifespan);
+      ellipse(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-592, position.y+player.playerY*mazeGeneration.cellSize-19, 2, 3);
 
-      stroke(100, 0, 0, lifespan);
-      fill(255, 200, 0, lifespan);
-      rect(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-594, position.y+player.playerY*mazeGeneration.cellSize-18, 3, 3);
+      stroke(255, 100, 0, lifespan);
+      fill(235, 220, 0, lifespan);
+      rect(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-592, position.y+player.playerY*mazeGeneration.cellSize-19, 3, 3);
     }
-    if (keyCode == DOWN) {
-      stroke(100, 0, 0, lifespan);
-      fill(232, 0, 0, lifespan);
-      ellipse(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-588, position.y+player.playerY*mazeGeneration.cellSize-18, 3, 3);
+    if (keyCode == DOWN || (player.playerDirection == 3)) {
+      stroke(200, 0, 0, lifespan);
+      fill(255, 0, 0, lifespan);
+      ellipse(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-588, position.y+player.playerY*mazeGeneration.cellSize-19, 2, 3);
 
-      stroke(100, 0, 0, lifespan);
-      fill(255, 200, 0, lifespan);
-      rect(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-588, position.y+player.playerY*mazeGeneration.cellSize-18, 3, 3);
+      stroke(255, 100, 0, lifespan);
+      fill(235, 220, 0, lifespan);
+      rect(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-588, position.y+player.playerY*mazeGeneration.cellSize-19, 3, 3);
     }
-    if (keyCode == LEFT) {
-      stroke(100, 0, 0, lifespan);
-      fill(232, 0, 0, lifespan);
-      ellipse(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-618, position.y+player.playerY*mazeGeneration.cellSize-18, 3, 3);
+    if (keyCode == LEFT || (player.playerDirection == 4)) {
+      stroke(200, 0, 0, lifespan);
+      fill(255, 0, 0, lifespan);
+      ellipse(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-618, position.y+player.playerY*mazeGeneration.cellSize-19, 2, 3);
 
-      stroke(100, 0, 0, lifespan);
-      fill(255, 200, 0, lifespan);
-      rect(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-618, position.y+player.playerY*mazeGeneration.cellSize-18, 3, 3);
+      stroke(255, 100, 0, lifespan);
+      fill(235, 220, 0, lifespan);
+      rect(position.x+player.playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-618, position.y+player.playerY*mazeGeneration.cellSize-19, 3, 3);
     }
   }
 
