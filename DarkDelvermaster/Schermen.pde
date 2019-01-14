@@ -110,7 +110,7 @@ class Schermen {
 
         // text((iScore+1) + "       "+ score.name + "            " + score.totalScore + "            " + score.endlevel + "                 " + score.totalTime, width/2, height/2.3 + iScore*20);     //display score
       }
-      textSize(80);
+      textSize(32);
     }
   }
   void nameInputScherm() {
