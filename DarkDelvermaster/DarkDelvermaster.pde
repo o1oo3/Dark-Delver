@@ -40,6 +40,7 @@ SpriteSheet playerSheetUp;
 SpriteSheet monsterSheetLeft;
 SpriteSheet monsterSheetRight;
 SpriteSheet monsterSheetUp;
+SpriteSheet explosionSheet;
 ScoreList highscores;
 Score scoreToevoegen;
 Timer startTimer;

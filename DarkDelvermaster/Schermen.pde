@@ -59,6 +59,7 @@ class Schermen {
       monsterSheetLeft.update();
       monsterSheetRight.update();
       bomb.explodeBomb();
+      explosionSheet.update();
       bombSheet.update();
       startTimer.countUp();
 
