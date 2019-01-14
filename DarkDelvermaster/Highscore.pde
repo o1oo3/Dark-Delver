@@ -8,6 +8,50 @@ class Score {
   int playerIndex;
   int scoretime;
   int score;
+  
+  final int stateNormal = 0;
+  final int stateInput = 1;
+  final int stateAfterInput = 2;
+  int state = stateNormal;
+  char[] letters = new char[4];
+  int index = 0;
+  String result = "";
+  
+  void Nameinput() {
+   if (state==stateInput){
+    if (keyCode == UP) { 
+      if (letters[index] > 64) { 
+        letters[index]--;
+        if (letters[index] == 64) {
+          letters[index] = 90;
+        }
+      }
+    } else if (keyCode == DOWN) { 
+      if (letters[index] < 91) {
+        letters[index]++;
+        if (letters[index] == 91) {
+          letters[index] = 65;
+        }
+      }
+    } else if (keyCode == LEFT) {
+      index--;
+      if (index<0) 
+        index=0;
+    } else if (keyCode == RIGHT) {
+      index++;
+      if (index>3) 
+        index=3;
+    } /*else if (key == RETURN||key==ENTER)*/
+      else if (key == 'x'){ //THIS SECTION OF CODE IS FOR INPUTTING ONE'S NAME IN ARCADE STYLE FOR THE HIGSCORE
+      result=""+letters[0]+letters[1]+letters[2]+letters[3];
+      state=stateAfterInput;
+      schermen.welkScherm[3] = false;
+      schermen.welkScherm[2] = true;
+      highscores.addScore(scoreToevoegen.result, scoreToevoegen.totalScore, (int)player.level-1, scoreToevoegen.totalTime); //ADDS THE PLAYER'S TOTAL SCORE TO THE HIGHSCOREBOARD
+      changeScherm.changeGameoverScherm();
+    }
+    }
+ }
 
   void Totalscore() {
     if (startTimer.min >= 0) { 

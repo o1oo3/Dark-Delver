@@ -8,7 +8,7 @@ class Schermen {
   String text;
 
   Schermen() {
-    welkScherm = new boolean[3];
+    welkScherm = new boolean[4];
     welkScherm[0] = true;
   }
 
@@ -60,6 +60,7 @@ class Schermen {
       monsterSheetRight.update();
       bomb.explodeBomb();
       explosionSheet.update();
+
       bombSheet.update();
       startTimer.countUp();
 
@@ -72,6 +73,10 @@ class Schermen {
         text(text, width/2, height/2);
         text = "Level ";
         text(text+player.level, width/2, height/4);
+        if (player.level >= 2) {
+          text = "Score ";
+          text(text + scoreToevoegen.totalScore, width/2, height/3);
+        }
       }
     }
   }
@@ -79,12 +84,52 @@ class Schermen {
     if (welkScherm[2]) {
       image(assets.imageGameOver, CENTER-2, CENTER -2);
       fill(255, 255, 255);
-      text("Place    Name      score      level        time", width/2, height/2.5);   
+
+
       textSize(20);
+
+
+      text("Place", width/2-200, height/2.5);
+      text("Name", width/2-100, height/2.5);
+      text("Score", width/2, height/2.5);
+      text("Level", width/2+100, height/2.5);
+      text("Time", width/2+200, height/2.5);
+      textAlign(CENTER);
+      //text("Place    Name      score      level        time", width/2, height/2.5);   
       for (int iScore = 0; iScore<highscores.getScoreCount(); iScore++) {     
         if (iScore >= 14) break;  //shows top 15 scores   
-        Score score = highscores.getScore(iScore); //fetch a score from the list     
-        text((iScore+1) + "          "+ score.name + "        " + score.totalScore + "   " + score.endlevel + "     " + score.totalTime, width/2, height/2.3 + iScore*20);     //display score
+        Score score = highscores.getScore(iScore); //fetch a score from the list    
+        textAlign(CENTER, CENTER);
+        text((iScore+1), width/2-200, height/2.5+(iScore+1)*20);
+        text((score.name), width/2-100, height/2.5+(iScore+1)*20);
+        text((score.totalScore), width/2, height/2.5+(iScore+1)*20);
+        text((score.endlevel), width/2+100, height/2.5+(iScore+1)*20);
+        text((score.totalTime), width/2+200, height/2.5+(iScore+1)*20);
+
+
+
+        // text((iScore+1) + "       "+ score.name + "            " + score.totalScore + "            " + score.endlevel + "                 " + score.totalTime, width/2, height/2.3 + iScore*20);     //display score
+      }
+      textSize(32);
+    }
+  }
+  void nameInputScherm() {
+    if (welkScherm[3]) {
+      scoreToevoegen.state = scoreToevoegen.stateInput;
+      image(assets.imageGameOver, CENTER-2, CENTER -2);
+      //fill(255, 0, 0);
+      // textSize(20);
+      //text("Enter your name", 200, 100);
+      // text("Use left, right, upper and down keys", 200, 200);
+      textSize(80);
+
+      int i=0;
+      for (char c : scoreToevoegen.letters) {
+        fill(255, 0, 0);
+        if (i==scoreToevoegen.index)
+          fill(255);
+        text(char(scoreToevoegen.letters[i])+"", width/2.5+i*65, height/2);
+        i++;
       }
     }
   }

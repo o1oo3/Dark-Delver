@@ -14,6 +14,7 @@ class Bomb {
   }
 
   void drawBomb() {
+
     if (millis() < fuse + 1650) {
       bombSheet.draw(bombX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX+20, bombY*mazeGeneration.cellSize+10);
     }
@@ -40,6 +41,8 @@ class Bomb {
           mazeGeneration.leftWall[bombX][bombY] = false;
           mazeGeneration.rightWall[bombX-1][bombY] = false;
         }
+        assets.audioFuse.pause();
+        assets.audioFuse.rewind();
         assets.audioBomb.trigger();
         bombExplosion = false;
       }
