@@ -13,7 +13,7 @@ class ChangeScherm {
         assets.audiomenutheme.pause();
         assets.audiomenutheme.rewind();
         assets.audioleveltheme.rewind();
-        assets.audioleveltheme.play();
+        assets.audioleveltheme.loop();
         schermen.welkScherm[0] = false;
         schermen.welkScherm[1] = true;
 
@@ -68,16 +68,14 @@ class ChangeScherm {
     }
   } 
   void changeGameoverScherm() {
-    if (schermen.welkScherm[2]) {      
-      assets.audioleveltheme.pause();
-      assets.audioleveltheme.rewind();
-      assets.audiogameovertheme.rewind();     
-      assets.audiogameovertheme.play();
+    if (schermen.welkScherm[2]) {         
       player.level = 0;
       //startTimer.min = 0;
       //startTimer.s = 0;
       //startTimer.ms = 0;
       if (key == 'z') {
+        assets.audiogameovertheme.pause();
+        assets.audiogameovertheme.rewind();
         schermen.welkScherm[2] = false;
         schermen.welkScherm[0] = true;
       }
