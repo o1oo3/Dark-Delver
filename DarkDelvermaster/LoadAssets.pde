@@ -44,6 +44,7 @@ class LoadAssets {
   PImage imagesleutelSprite;
   PImage imageDoor;
   PImage imagemonsterSprite;
+  PImage imageGameOver;
   PImage[] imagebackground;
   PImage imageBackground00;
   PImage imageBackground01;
@@ -127,6 +128,7 @@ class LoadAssets {
     monsterSheetUp = new SpriteSheet("monsterSpriteUp.png", 8);
     bombSheet = new SpriteSheet("Bomb.png", 8);
     imageBombStatikk = loadImage("BombStatikk.png");
+    imageGameOver = loadImage("GameOver.png");
     
 
   }

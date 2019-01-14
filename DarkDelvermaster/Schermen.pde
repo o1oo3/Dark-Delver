@@ -29,6 +29,7 @@ class Schermen {
       eindDeur.drawEindDeur();
       player.checkPlayer();
       player.drawPlayer();
+      particleflame.run();
       monster.makeMonster(); //MAKES SURE THE MONSTER IS ABLE TO MOVE ALONG WITH THE ALGORITHM
       monster.drawMonster(); //MAKES SURE THE MONSTER HAS AN IMAGE ON THE SCREEN
       if (player.level >= 5) { //CHECKS WETHER THE LEVEL IS APPROPRIATELY HIGH TO CREATE A NEW MONSTER
@@ -72,6 +73,7 @@ class Schermen {
   }
   void gameOverScherm() {
     if (welkScherm[2]) {
+      image(assets.imageGameOver, CENTER-2, CENTER -2);
       fill(255, 255, 255);
       text("Place    Name      score      level        time", width/2, height/2.5);   
       textSize(20);

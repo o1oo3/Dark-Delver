@@ -19,6 +19,7 @@ LoadAssets assets;
 
 MazeGeneration mazeGeneration;
 Player player;
+FlameSystem particleflame;
 Monster monster;
 Monster monster2;
 Monster monster3;
@@ -43,10 +44,12 @@ Score scoreToevoegen;
 Timer startTimer;
 
 
+
 void setup() {
   size(1280, 720);
   mazeGeneration = new MazeGeneration();
   player = new Player();
+  particleflame = new FlameSystem(new PVector(width/2, 50));
   monster = new Monster(); //CALLS THE METHOD FOR CREATING A MONSTER
   monster2 = new Monster();
   monster3 = new Monster();
@@ -74,6 +77,7 @@ void draw() {
   }
 
   background(background);
+  particleflame.addParticle();
   schermen.mainMenu();
   schermen.gameScherm();
   schermen.gameOverScherm();
