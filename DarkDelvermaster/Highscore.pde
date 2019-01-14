@@ -41,7 +41,8 @@ class Score {
       index++;
       if (index>3) 
         index=3;
-    } else if (key == RETURN||key==ENTER) {
+    } /*else if (key == RETURN||key==ENTER)*/
+      else if (key == 'x'){ //THIS SECTION OF CODE IS FOR INPUTTING ONE'S NAME IN ARCADE STYLE FOR THE HIGSCORE
       result=""+letters[0]+letters[1]+letters[2]+letters[3];
       state=stateAfterInput;
       schermen.welkScherm[3] = false;
