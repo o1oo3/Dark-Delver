@@ -135,7 +135,7 @@ class Player {
       sleutel3.sleutelY = -1;
     }
     if (playerX == eindDeur.deurX && playerY == eindDeur.deurY) { //CHECKS WETHER THE PLAYER IS STANDING ON THE END DOOR
-      println(sleutel.amountOfSleutels);
+      //println(sleutel.amountOfSleutels);
       if (player.level <= 4) { //CHECKS WETHER THE LEVEL IS A LEVEL THAT HAS MULTIPLE KEYS
         if (sleutel.amountOfSleutels == 1) { //CHECKS WETHER THE PLAYER HAS THE REQUIRED AMOUNT OF KEYS
           scoreToevoegen.Totalscore(); //ADDS THE SCORE FORMULA FOR THIS LEVEL TO THE PLAYER'S TOTAL SCORE
