@@ -69,6 +69,9 @@ void setup() {
   assets.audiomenutheme.rewind();
   assets.audiomenutheme.loop();
   textFont(assets.fontpixeled);
+  for (int i=0; i<scoreToevoegen.letters.length; i++) {
+    scoreToevoegen.letters[i]='A';
+   }
 }
 void draw() {
   PImage background = assets.imagebackground[0];
@@ -83,6 +86,7 @@ void draw() {
   schermen.mainMenu();
   schermen.gameScherm();
   schermen.gameOverScherm();
+  schermen.nameInputScherm();
 }
 
 void keyPressed() {
@@ -90,6 +94,7 @@ void keyPressed() {
   changeScherm.changeMainMenu();
   changeScherm.changeGameoverScherm();
   player.playerBomb();
+  scoreToevoegen.Nameinput();
 }
 void keyReleased() {
   player.stopPlayer();
