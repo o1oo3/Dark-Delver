@@ -86,6 +86,7 @@ class Schermen {
       fill(255, 255, 255);
 
 
+      textSize(20);
 
 
       text("Place", width/2-200, height/2.5);
@@ -95,7 +96,6 @@ class Schermen {
       text("Time", width/2+200, height/2.5);
       textAlign(CENTER);
       //text("Place    Name      score      level        time", width/2, height/2.5);   
-      textSize(20);
       for (int iScore = 0; iScore<highscores.getScoreCount(); iScore++) {     
         if (iScore >= 14) break;  //shows top 15 scores   
         Score score = highscores.getScore(iScore); //fetch a score from the list    
@@ -110,6 +110,7 @@ class Schermen {
 
         // text((iScore+1) + "       "+ score.name + "            " + score.totalScore + "            " + score.endlevel + "                 " + score.totalTime, width/2, height/2.3 + iScore*20);     //display score
       }
+      textSize(80);
     }
   }
   void nameInputScherm() {

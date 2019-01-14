@@ -19,7 +19,7 @@ class Timer {
   }
 
   void countUp() {
-    if ((keyCode == LEFT || keyCode == DOWN || keyCode == RIGHT || keyCode == UP)|| key == 'x') {
+    if ((keyCode == LEFT || keyCode == DOWN || keyCode == RIGHT || keyCode == UP)|| key == 'x' || key == 'z') {
       fill(255);
 
       if (ms<=59 || levelms<=59) {
