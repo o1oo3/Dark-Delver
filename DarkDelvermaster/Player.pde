@@ -109,13 +109,11 @@ class Player {
     if ((playerX == monster.monsterX && playerY == monster.monsterY) //CHECKS WETHER THE PLAYER IS STANDING ON A MONSTER AND WETHER THE MONSTER SHOULD BE SPAWNED IN THE CURRENT LEVEL
       || (playerX == monster2.monsterX && playerY == monster2.monsterY && player.level >= 5) 
       || (playerX == monster3.monsterX && playerY == monster3.monsterY && player.level >= 10)) {
-      highscores.addScore("Player_" + scoreToevoegen.playerIndex++, scoreToevoegen.totalScore, (int)player.level-1, scoreToevoegen.totalTime); //ADDS THE PLAYER'S TOTAL SCORE TO THE HIGHSCOREBOARD
+      schermen.welkScherm[1] = false; //TURNS OFF THE SCREEN FOR THE LEVEL
+      schermen.welkScherm[3] = true; //TURNS ON THE GAME OVER SCREEN
+      assets.audiogameovertheme.play();
       assets.audioleveltheme.pause();
       assets.audioleveltheme.rewind();
-      assets.audiogameovertheme.play();
-      assets.audiomonsterkill.play();
-      schermen.welkScherm[1] = false; //TURNS OFF THE SCREEN FOR THE LEVEL
-      schermen.welkScherm[2] = true; //TURNS ON THE GAME OVER SCREEN
     }
     if (playerX == sleutel.sleutelX && playerY == sleutel.sleutelY) { //STATEMENT DECIDING THAT THE PLAYER STEPS ON A KEY.
       assets.audiokeypickup.trigger(); //TRIGGER FOR THE KEY PICKUP SOUND
@@ -136,7 +134,7 @@ class Player {
       sleutel3.sleutelY = -1;
     }
     if (playerX == eindDeur.deurX && playerY == eindDeur.deurY) { //CHECKS WETHER THE PLAYER IS STANDING ON THE END DOOR
-      println(sleutel.amountOfSleutels);
+      //println(sleutel.amountOfSleutels);
       if (player.level <= 4) { //CHECKS WETHER THE LEVEL IS A LEVEL THAT HAS MULTIPLE KEYS
         if (sleutel.amountOfSleutels == 1) { //CHECKS WETHER THE PLAYER HAS THE REQUIRED AMOUNT OF KEYS
           scoreToevoegen.Totalscore(); //ADDS THE SCORE FORMULA FOR THIS LEVEL TO THE PLAYER'S TOTAL SCORE

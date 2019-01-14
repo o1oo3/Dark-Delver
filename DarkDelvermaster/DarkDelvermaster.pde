@@ -19,6 +19,7 @@ LoadAssets assets;
 
 MazeGeneration mazeGeneration;
 Player player;
+FlameSystem particleflame;
 Monster monster;
 Monster monster2;
 Monster monster3;
@@ -39,6 +40,7 @@ SpriteSheet playerSheetUp;
 SpriteSheet monsterSheetLeft;
 SpriteSheet monsterSheetRight;
 SpriteSheet monsterSheetUp;
+SpriteSheet explosionSheet;
 ScoreList highscores;
 Score scoreToevoegen;
 Timer startTimer;
@@ -49,6 +51,7 @@ void setup() {
   size(1280, 720);
   mazeGeneration = new MazeGeneration();
   player = new Player();
+  particleflame = new FlameSystem(new PVector(width/2, 50));
   monster = new Monster(); //CALLS THE METHOD FOR CREATING A MONSTER
   monster2 = new Monster();
   monster3 = new Monster();
@@ -65,8 +68,11 @@ void setup() {
   startTimer = new Timer(0);
   scoreToevoegen = new Score("0", 0, 0, "00;00");
   assets.audiomenutheme.rewind();
-  assets.audiomenutheme.play();
+  assets.audiomenutheme.loop();
   textFont(assets.fontpixeled);
+  for (int i=0; i<scoreToevoegen.letters.length; i++) {
+    scoreToevoegen.letters[i]='A';
+   }
 }
 void draw() {
   PImage background = assets.imagebackground[0];
@@ -77,9 +83,11 @@ void draw() {
   }
 
   background(background);
+  particleflame.addParticle();
   schermen.mainMenu();
   schermen.gameScherm();
   schermen.gameOverScherm();
+  schermen.nameInputScherm();
 }
 
 void keyPressed() {
@@ -87,6 +95,7 @@ void keyPressed() {
   changeScherm.changeMainMenu();
   changeScherm.changeGameoverScherm();
   player.playerBomb();
+  scoreToevoegen.Nameinput();
 }
 void keyReleased() {
   player.stopPlayer();

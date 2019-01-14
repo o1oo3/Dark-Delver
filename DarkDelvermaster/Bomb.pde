@@ -14,13 +14,17 @@ class Bomb {
   }
 
   void drawBomb() {
-    if (millis() < fuse + 2000) {
+
+    if (millis() < fuse + 1650) {
       bombSheet.draw(bombX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX+20, bombY*mazeGeneration.cellSize+10);
+    }
+    if (millis() > fuse + 1650 && millis() < fuse + 2400){
+      explosionSheet.draw(bombX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-8, bombY*mazeGeneration.cellSize-3);
     }
   }
   void explodeBomb() {
     if (bombExplosion) {
-      if (millis() > fuse + 2000) {
+      if (millis() > fuse + 1650) {
         if ( mazeGeneration.checkOutOfBounts(bombX, bombY-1)) {
           mazeGeneration.topWall[bombX][bombY] = false;
           mazeGeneration.bottomWall[bombX][bombY-1] = false;
@@ -37,17 +41,17 @@ class Bomb {
           mazeGeneration.leftWall[bombX][bombY] = false;
           mazeGeneration.rightWall[bombX-1][bombY] = false;
         }
+        assets.audioFuse.pause();
+        assets.audioFuse.rewind();
         assets.audioBomb.trigger();
         bombExplosion = false;
-        assets.audioFuse.rewind();
-        assets.audioFuse.pause();
       }
     }
   }
-  void resetBomb() {
-    bombExplosion = false;
+  void resetBomb(){
+  bombExplosion = false;
   }
-
+  
 
 
 

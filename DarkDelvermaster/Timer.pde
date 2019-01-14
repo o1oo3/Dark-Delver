@@ -2,6 +2,9 @@ class Timer {
   int ms;
   int s;
   int min;
+  int levelms;
+  int levelsec;
+  int levelmin;
 
   float Time;
 
@@ -17,17 +20,17 @@ class Timer {
 
   void countUp() {
     if ((keyCode == LEFT || keyCode == DOWN || keyCode == RIGHT || keyCode == UP)|| key == 'x') {
+      fill(255);
 
-
-
-      if (ms<=119) {
+      if (ms<=59 || levelms<=59) {
         //text(h + ":" + min, width/2, 30);
         ms = ms + 1;
+        levelms =levelms +1;
       } else {
         s = s + 1;
+        levelsec = levelsec + 1;
+        levelms = 0;
         ms = 0;
-        //text(h + ":" + 0 + min, width/2, 30);
-        ms = ms + 1;
       }
       if (s<=9) {
         text(min + " : " + 0 + s, width / 2, 30);
@@ -41,6 +44,10 @@ class Timer {
         text(min + " : " + 0 + s, width / 2, 30);
         ms = ms + 1;
       }
+    }
+    if (levelsec >= 60){
+      levelmin = levelmin + 1;
+      levelsec = 0;
     }
   }
 }
