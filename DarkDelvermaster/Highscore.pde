@@ -54,12 +54,12 @@ class Score {
  }
 
   void Totalscore() {
-    if (startTimer.min >= 0) { 
-      scoretime = 60 - startTimer.s;
+    if (startTimer.levelmin >= 0) { 
+      scoretime = 60 - startTimer.levelsec;
     } else {
       scoretime = 0;
     }
-    score = player.level * 10;
+    score = player.level * 10 +scoretime;
     totalScore = totalScore + score;
   }
 
