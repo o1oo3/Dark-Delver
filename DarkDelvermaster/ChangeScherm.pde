@@ -38,6 +38,9 @@ class ChangeScherm {
     if (schermen.welkScherm[1]) {
       assets.audiovictory.rewind();
       assets.audiovictory.play();
+       startTimer.levelmin = 0;
+      startTimer.levelms = 0;
+      startTimer.levelsec = 0;
 
       if (player.level < 8) {
         mazeGeneration.changeMazeGeneration(72, 10+player.level-1, 10);
@@ -66,7 +69,6 @@ class ChangeScherm {
         monster3.changeMonster(90-player.level*3);
       }// THE NUMBER BETWEEN THE CONSTRUCTOR IS THE FREQUENCY AT WHICH THE MONSTER MAKES DECISIONS, IN THIS CASE EVERY 45 FRAMES.
       eindDeur.changeEindDeur();
-     
     }
   } 
   void changeGameoverScherm() {
@@ -75,6 +77,9 @@ class ChangeScherm {
       startTimer.min = 0;
       startTimer.s = 0;
       startTimer.ms = 0;
+      startTimer.levelmin = 0;
+      startTimer.levelms = 0;
+      startTimer.levelsec = 0;
       scoreToevoegen.totalTime = "00:00";
       scoreToevoegen.totalScore = 0;
       if (key == 'z') {
