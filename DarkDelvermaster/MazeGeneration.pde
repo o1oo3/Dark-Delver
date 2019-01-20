@@ -194,8 +194,8 @@ the method checkWalls checks for each wall with the checkOutOfBounts method and 
   }
   /*
   the method backtracker only activates when the current cell has no unvisited cells
-  if this happens the visitedlist X & Y gets set back by 1 with the shorten function
-  the current X & Y gets set to the visitedlist X & Y that have been set back.
+   if this happens the visitedlist X & Y gets set back by 1 with the shorten function
+   the current X & Y gets set to the visitedlist X & Y that have been set back.
    */
   void backtracker() {
 

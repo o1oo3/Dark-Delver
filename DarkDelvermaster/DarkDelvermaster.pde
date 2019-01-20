@@ -72,7 +72,7 @@ void setup() {
   textFont(assets.fontpixeled);
   for (int i=0; i<scoreToevoegen.letters.length; i++) {
     scoreToevoegen.letters[i]='A';
-   }
+  }
 }
 void draw() {
   PImage background = assets.imagebackground[0];

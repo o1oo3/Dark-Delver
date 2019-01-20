@@ -18,7 +18,7 @@ class Bomb {
     if (millis() < fuse + 1650) {
       bombSheet.draw(bombX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX+20, bombY*mazeGeneration.cellSize+10);
     }
-    if (millis() > fuse + 1650 && millis() < fuse + 2400){
+    if (millis() > fuse + 1650 && millis() < fuse + 2400) {
       explosionSheet.draw(bombX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-8, bombY*mazeGeneration.cellSize-3);
     }
   }
@@ -48,10 +48,10 @@ class Bomb {
       }
     }
   }
-  void resetBomb(){
-  bombExplosion = false;
+  void resetBomb() {
+    bombExplosion = false;
   }
-  
+
 
 
 

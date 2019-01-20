@@ -5,6 +5,9 @@ Deze class veranderd verschillende schermen
 
 class ChangeScherm {
 
+/*
+This method loads the parts that are required for the first maze
+*/
 
   void changeMainMenu() {
     if (schermen.welkScherm[0]) {
@@ -34,11 +37,14 @@ class ChangeScherm {
       }
     }
   }
+  /*
+  This method is called when you beat a level.
+  */
   void changeGameScherm() {
     if (schermen.welkScherm[1]) {
       assets.audiovictory.rewind();
       assets.audiovictory.play();
-       startTimer.levelmin = 0;
+      startTimer.levelmin = 0;
       startTimer.levelms = 0;
       startTimer.levelsec = 0;
 
@@ -71,6 +77,9 @@ class ChangeScherm {
       eindDeur.changeEindDeur();
     }
   } 
+  /*
+  this method is called when you are gameover, it 
+  */
   void changeGameoverScherm() {
     if (schermen.welkScherm[2]) {         
       player.level = 0;
