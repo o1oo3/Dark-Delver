@@ -1,6 +1,6 @@
 
 /*
-Deze class laadt alle assets die worden gebruikt in de game.
+ This class loads all the assets in the game.
  */
 
 
@@ -63,7 +63,7 @@ class LoadAssets {
   PImage imageExit;
   PImage imageDDlogo;
   PImage imageBombStatikk;
-  //PImage imageBombExplosion;
+
 
 
 
@@ -133,7 +133,5 @@ class LoadAssets {
     explosionSheet = new SpriteSheet("Explosie.png", 6);
     imageBombStatikk = loadImage("BombStatikk.png");
     imageGameOver = loadImage("GameOver.png");
-    
-
   }
 }

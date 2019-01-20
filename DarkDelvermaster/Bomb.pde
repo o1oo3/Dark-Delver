@@ -51,10 +51,4 @@ class Bomb {
   void resetBomb() {
     bombExplosion = false;
   }
-
-
-
-
-
-  //image(assets.imageBombStatikk, playerX*mazeGeneration.cellSize, playerY*mazeGeneration.cellSize);
 }

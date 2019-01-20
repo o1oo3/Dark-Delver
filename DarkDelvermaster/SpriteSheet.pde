@@ -1,7 +1,7 @@
-// Spritesheet class voor animaties
+// Spritesheet class for animations
 class SpriteSheet {
 
-  //De image bevat de frames en het plaatje om te tekenen
+  //Image contains the frames for drawing.
   PImage sourceImage, drawImage;
   int fps = 5;
   int frame = 0;
@@ -10,7 +10,7 @@ class SpriteSheet {
   int nFrames = 0;
 
 
-  // Contructor neemt naam, image source en de nummer/hoeveelheid frames
+  //Constructor uses name, image source and the number of frames.
   SpriteSheet(String imageName, int nFrames) {
     sourceImage = loadImage(imageName);
     this.nFrames = nFrames;
@@ -21,7 +21,7 @@ class SpriteSheet {
 
 
 
-  // update() selecteert de image om te teken gebasseerd op fps en frames al getekend
+  // update() selects the image to draw based on fps and frames (already drawn)
   void update() {
     if ((frameCount % fps) == 0)    
       frame =  (frame + 1) % nFrames;
