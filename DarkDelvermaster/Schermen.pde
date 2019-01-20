@@ -12,9 +12,9 @@ class Schermen {
     welkScherm[0] = true;
   }
 
-/*
+  /*
 This method is always called in the draw() method
-and makes the mainmenu show*/
+   and makes the mainmenu show*/
   void mainMenu() {
     if (welkScherm[0]) {
       image(assets.imageDDlogo, CENTER-2, CENTER-2);
@@ -23,9 +23,9 @@ and makes the mainmenu show*/
       text(text, width/2, height-height/10);
     }
   }
-/*
+  /*
 this Method is always called in draw 
-and it draws all the components of the game*/
+   and it draws all the components of the game*/
   void gameScherm() {
     if (welkScherm[1]) {
       mazeGeneration.checkWalls();
@@ -86,8 +86,8 @@ and it draws all the components of the game*/
   }
   /*
   this Method is always called in draw 
-  and it shows the highscore when you are gameover
-  */
+   and it shows the highscore when you are gameover
+   */
   void gameOverScherm() {
     if (welkScherm[2]) {
       image(assets.imageGameOver, CENTER-2, CENTER -2);
@@ -123,7 +123,7 @@ and it draws all the components of the game*/
   }
   /*
   this method is always called in the draw() method
-  and lets user add their names to their score*/
+   and lets user add their names to their score*/
   void nameInputScherm() {
     if (welkScherm[3]) {
       scoreToevoegen.state = scoreToevoegen.stateInput;

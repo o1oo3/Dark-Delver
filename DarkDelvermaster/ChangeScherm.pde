@@ -1,17 +1,16 @@
 /*
-Deze class veranderd verschillende schermen
- en herlaad de nodige functies
+This class swaps between different screens and reloads the necessary functions
  */
 
 class ChangeScherm {
 
-/*
+  /*
 This method loads the parts that are required for the first maze
-*/
+   */
 
   void changeMainMenu() {
     if (schermen.welkScherm[0]) {
-      //  Z laat het eerste level
+      //  Z loads the first level
       if (key == 'z') {        
         assets.audiomenutheme.pause();
         assets.audiomenutheme.rewind();
@@ -39,7 +38,7 @@ This method loads the parts that are required for the first maze
   }
   /*
   This method is called when you beat a level.
-  */
+   */
   void changeGameScherm() {
     if (schermen.welkScherm[1]) {
       assets.audiovictory.rewind();
@@ -79,7 +78,7 @@ This method loads the parts that are required for the first maze
   } 
   /*
   this method is called when you are gameover, it 
-  */
+   */
   void changeGameoverScherm() {
     if (schermen.welkScherm[2]) {         
       player.level = 0;

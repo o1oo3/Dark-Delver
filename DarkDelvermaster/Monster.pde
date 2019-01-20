@@ -12,7 +12,7 @@ class Monster {
   boolean monsterCameFromRight;
   boolean monsterCameFromDown;
   boolean monsterCameFromLeft;
-  
+
 
   int[] monsterCurrentCellSituation;
   int monsterChosenDirection;
@@ -452,7 +452,7 @@ class Monster {
           || monsterChosenDirection == 42 
           || monsterChosenDirection == 50) {
           monsterY+=1;
-          
+
           monsterCameFromTop=true;
           if (monsterAudioPicker == 0) {
             assets.audiomonsterstep1.trigger();
@@ -469,7 +469,7 @@ class Monster {
 
       /*GOING LEFT*/
       if (monsterX != 0) {  //POINTS TO THE OUT OF BOUNDS VALUE FOR LEFT
-      
+
         if (monsterChosenDirection == 3 
           || monsterChosenDirection == 5 
           || monsterChosenDirection == 9 
@@ -535,22 +535,22 @@ class Monster {
     }
   }
   void drawMonster() {
-    if(monsterCameFromTop ==false && monsterCameFromLeft == false && monsterCameFromRight == false && monsterCameFromDown==false){
-     monsterSheetDown.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);
+    if (monsterCameFromTop ==false && monsterCameFromLeft == false && monsterCameFromRight == false && monsterCameFromDown==false) {
+      monsterSheetDown.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);
     }
-    if (monsterCameFromTop == true){
-      monsterSheetDown.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);      
+    if (monsterCameFromTop == true) {
+      monsterSheetDown.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);
     }
-    if (monsterCameFromLeft == true){
-      monsterSheetRight.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);      
+    if (monsterCameFromLeft == true) {
+      monsterSheetRight.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);
     }
-    if (monsterCameFromRight == true){
-      monsterSheetLeft.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);      
+    if (monsterCameFromRight == true) {
+      monsterSheetLeft.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);
     }
-    if (monsterCameFromDown == true){
-      monsterSheetUp.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);      
+    if (monsterCameFromDown == true) {
+      monsterSheetUp.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);
     }
-    
+
     //fill(100, 0, 0);
     //ellipse(monsterX*mazeGeneration.cellSize+mazeGeneration.cellSize/2+mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize+mazeGeneration.cellSize/2, mazeGeneration.cellSize, mazeGeneration.cellSize);
     //image(assets.monsterSprite, monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize, mazeGeneration.cellSize, mazeGeneration.cellSize);

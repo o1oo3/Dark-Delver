@@ -1,6 +1,6 @@
 
 /*
-deze class maakt de speler aan het laat deze bewegen doormiddel van keypresses, er word in deze class ook collision met Monster,sleutel,einddeur en de maze muren gecontroleerd.
+This class creates the player and allows it to move with keypresses. Collision with Monster, Key, Door and maze walls is also present here.
  */
 
 class Player {
@@ -36,10 +36,9 @@ class Player {
       playerSheetDown.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
     }
 
-    // if (key == CODED) {
+
 
     if (  playerDirection == 1) {
-
       playerSheetUp.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
     }
     if (playerDirection == 2) {
@@ -72,14 +71,7 @@ class Player {
       playerDirection = 4;
       playerFirstDraw = false;
     }
-    //  }
-    //fill(255);
-    //ellipse(playerX*mazeGeneration.cellSize+mazeGeneration.cellSize/2+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize+mazeGeneration.cellSize/2, mazeGeneration.cellSize, mazeGeneration.cellSize);
     image(assets.imageLight, playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX-1715, playerY*mazeGeneration.cellSize-1210);
-    //image(assets.imageBombStatikk, 1200, 635);
-    //image(assets.playerSprite, playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
-    //spriteSheet = new SpriteSheet("Howdy clone.png", 6);
-    //playerSheetDown.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
     if (bombAmount >= 1) {
       text("x", 1200, 635);
       image(assets.imageBombStatikk, 1200, 635);
@@ -135,7 +127,6 @@ class Player {
       sleutel3.sleutelY = -1;
     }
     if (playerX == eindDeur.deurX && playerY == eindDeur.deurY) { //CHECKS WETHER THE PLAYER IS STANDING ON THE END DOOR
-      //println(sleutel.amountOfSleutels);
       if (player.level <= 4) { //CHECKS WETHER THE LEVEL IS A LEVEL THAT HAS MULTIPLE KEYS
         if (sleutel.amountOfSleutels == 1) { //CHECKS WETHER THE PLAYER HAS THE REQUIRED AMOUNT OF KEYS
           scoreToevoegen.Totalscore(); //ADDS THE SCORE FORMULA FOR THIS LEVEL TO THE PLAYER'S TOTAL SCORE
@@ -184,7 +175,6 @@ class Player {
             }
             if (playerMoveUp) {
               playerY--;
-              //playerSheetUp.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
               playerMoveUp = false;
 
               for (int i = 0; i<playerChoice.length; i++) {

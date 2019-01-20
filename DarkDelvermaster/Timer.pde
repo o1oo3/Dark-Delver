@@ -45,7 +45,7 @@ class Timer {
         ms = ms + 1;
       }
     }
-    if (levelsec >= 60){
+    if (levelsec >= 60) {
       levelmin = levelmin + 1;
       levelsec = 0;
     }
