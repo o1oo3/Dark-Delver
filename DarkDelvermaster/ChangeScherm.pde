@@ -10,7 +10,7 @@ This method loads the parts that are required for the first maze
 
   void changeMainMenu() {
     if (schermen.welkScherm[0]) {
-      //  Z loads the first level
+      //  z LOADS THE FIRST LEVEL
       if (key == 'z') {        
         assets.audiomenutheme.pause();
         assets.audiomenutheme.rewind();
@@ -90,7 +90,7 @@ This method loads the parts that are required for the first maze
       startTimer.levelsec = 0;
       scoreToevoegen.totalTime = "00:00";
       scoreToevoegen.totalScore = 0;
-      if (key == 'z') {
+      if (key == 'z') { //z RETURNS THE USER TO THE TITLE SCREEN
         assets.audiomenutheme.loop();
         assets.audiogameovertheme.pause();
         assets.audiogameovertheme.rewind();

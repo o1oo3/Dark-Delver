@@ -3,9 +3,10 @@
  This class loads all the assets in the game.
  */
 
-
+/*This Method loads all audio and immage assets.*/
 class LoadAssets {
-  AudioPlayer audiomenutheme; /*CREATES DIFFERENT CODES FOR EACH SOUNDFILE FOR EASE OF INSERTING INTO OTHER CLASSES*/
+  /*Audio asset list*/
+  AudioPlayer audiomenutheme; /*CREATES DIFFERENT ASSET CODES FOR EACH SOUNDFILE FOR EASE OF INSERTING INTO OTHER CLASSES*/
   AudioPlayer audioleveltheme;
   AudioPlayer audiochasetheme;
   AudioPlayer audiogameovertheme;
@@ -39,6 +40,7 @@ class LoadAssets {
   AudioSample audioBomb;
   AudioPlayer audioFuse;
 
+/*sprite and font asset list*/
   PImage imageplayerSprite;
   PImage imagemuurSpriteV;
   PImage imagemuurSpriteH;
@@ -67,7 +69,8 @@ class LoadAssets {
 
 
 
-  LoadAssets() { /*ATTACHES AN MP3 FILE TO THE ABOVE CREATED CODES*/
+  LoadAssets() { /*ATTACHES A FILE FROM THE PROGRAM'S FOLDER TO THE ABOVE CREATED ASSET CODES*/
+    /*audio file list*/
     audiomenutheme = minim.loadFile("Main menu theme.mp3");
     audioleveltheme = minim.loadFile("Leveltheme.mp3"); 
     audiochasetheme = minim.loadFile("ChasedbyMonster.mp3");
@@ -102,6 +105,7 @@ class LoadAssets {
     audioBomb = minim.loadSample("Bombsound.mp3");
     audioFuse = minim.loadFile("fusesoundeffect.mp3");
 
+    /*image file list*/
     imagemuurSpriteV = loadImage("MuurConceptV.png");
     imagemuurSpriteH = loadImage("MuurConceptH.png");
     imageDoor = loadImage("Deur.png");

@@ -1,5 +1,19 @@
 /*
-deze class maakt het monster aan laat dit monster algoritmisch/random door het maze bewegen.
+This class is made for the movement of the monster.
+The movement is based on the maze generation algorithm and is programmed as follows:
+  1 -- An array is made with every possible (53)(0-52) situation a monster can find itself in when deciding where to move, with the condition that he will not move back unless unable to do so otherwise.
+  2 -- The algorithm checks which mazeGeneration.{direction}Wall[monsterX][monsterY] variables are true or false 
+  3 -- All situations in the array are either set to 0(false) or 1(true), depending on which mazeGeneration.{direction}Wall[monsterX][monsterY] and monsterCameFrom{Direction} are set to 0(false) or 1(true)
+  3.1 -- All monsterCameFrom{Direction} variables are set to false, so that no two cells are marked as 'monsterCameFrom{Direction}' at the same time.
+  3.2 -- monsterCameFrom{Direction} is one of four variables to denote where the monster came from, listed as the it just moved from, linked to the direction opposite of the direction it walked before.
+  3.3 -- The algorithm will try to avoid selecting a situation where the monster moves in a direction that has monsterCameFrom{Direction} == true
+  4 -- A random number out of 53 (0-52) possible numbers is chosen.
+  4.1 -- The random number is linked to the situation with the corresponding number.
+  4.2 -- If the situation was not set to 1(true), another number is chosen untill a situation with 1(true) has been selected.
+  5 -- All situations are categorised in 4 directions, UP DOWN LEFT and RIGHT
+  6 -- The algorithm checks which of the 4 directions is linked to it's currently chosen situation, and moves the monster in that respective direction.
+  7 -- One of the monsterCameFrom{Direction} is set to true, this is the direction opposite of the direction the monster was selected to move.
+  8 -- The algorithm sets all possible situations in the array to 0(false) via a for loop, so that no two situations can be set to 1(true) at the same time.
  */
 
 class Monster {
@@ -23,11 +37,13 @@ class Monster {
 
 
 
-
+/*This method dictates the creation of a single monster whenever a new one is called upon in the DarkDelvermaster main*/
   void changeMonster(int monsterSpeed) {
-    do {
+    do { //DO WHILE LOOP THAT CHOOSES THE SPAWN LOCATION FOR A MONSTER, DEPENDING ON CONDITIONS IN THE LIST BELOW.
       monsterX = (int)random(0, mazeGeneration.mazeSizeX);
-      monsterY = (int)random(0, mazeGeneration.mazeSizeY);
+      monsterY = (int)random(0, mazeGeneration.mazeSizeY); 
+      //VVVVVV LIST OF CONDITIONS THAT DESCRIBE THE PLAYER COORDINATES BEING A CERTAIN DISTANCE AWAY FROM ALL POSSIBLE MONSTE COORDINATES.
+      // THESE CONDITIONS ARE USED TO SELECT THE MONSTER SPAWNING LOCATION, WHICH IS ATLEAST FOUR CELLS AWAY FROM THE PlAYER AND OTHER MONSTERS.
     } while (monsterX >= player.playerX-4 && monsterX <= player.playerX+4 && monsterY >= player.playerY-4 && monsterY <= player.playerY+4 
       && monster2.monsterX >= monster.monsterX-4 && monster2.monsterY >= monster.monsterY-4 && monster2.monsterX <= monster.monsterX+4 && monster2.monsterY <= monster.monsterY +4
       && monster3.monsterX >= monster.monsterX-4 && monster3.monsterY >= monster.monsterY-4 && monster3.monsterX <= monster.monsterX+4 && monster3.monsterY <= monster.monsterY +4
@@ -35,21 +51,22 @@ class Monster {
       && monster.monsterX >= monster2.monsterX-4 && monster.monsterY >= monster2.monsterY-4 && monster.monsterX <= monster2.monsterX+4 && monster.monsterY <= monster2.monsterY +4
       && monster.monsterX >= monster3.monsterX-4 && monster.monsterY >= monster3.monsterY-4 && monster.monsterX <= monster3.monsterX+4 && monster.monsterY <= monster3.monsterY +4
       && monster2.monsterX >= monster3.monsterX-4 && monster2.monsterY >= monster3.monsterY-4 && monster2.monsterX <= monster3.monsterX+4 && monster2.monsterY <= monster3.monsterY +4);
-    monsterCameFromTop=false;
+    monsterCameFromTop=false; //SETS ALL monsterCameFrom VARIABLES TO FALSE SO AS TO ENABLE THE MONSTER TO PICK ANY DIRECTION WHEN IT SPAWNS
     monsterCameFromRight=false;
     monsterCameFromDown=false;
     monsterCameFromLeft=false;
-    monsterCurrentCellSituation = new int [52];
-    monsterChosenDirection = 0;
-    this.monsterSpeed = monsterSpeed;
+    monsterCurrentCellSituation = new int [52]; //CREATES THE ARRAY FOR ALL POSSIBLE SITUATIONS
+    monsterChosenDirection = 0; //SETS monsterChosenDirection to 0 SO A VALUE IS ATTACHED AND IT CAN BE USED.
+    this.monsterSpeed = monsterSpeed; 
   }
 
   void makeMonster() {
     monsterTimer++;
     if (monsterTimer%monsterSpeed == 0) {
+      
       /*CODE FOR ALL POSSIBLE SITUATIONS IN RELATION TO MONSTER LOCATION AND OPEN PATHS*/
-      /*mazeGeneration.(position)Wall DENOTES WHICH SIDE IS CLOSED OFF WITH A WALL (1) OR OPEN (2)*/
-      /*monsterCameFrom(x) DENOTES WHICH DIRECTION THE MONSTER CAME FROM AND IS NOT ALLOWED TO GO BACK TO UNLESS ALL OTHER DIRECTIONS ARE SET TO mazeGeneration.(position)Wall == 1*/
+      /*mazeGeneration.[direction]Wall[monsterX][monsterY] DENOTES WHICH SIDE IS CLOSED OFF WITH A WALL (TRUE) OR OPEN (FALSE)*/
+      /*monsterCameFrom(x) DENOTES WHICH DIRECTION THE MONSTER CAME FROM AND IS NOT ALLOWED TO GO BACK TO UNLESS ALL OTHER DIRECTIONS ARE SET TO mazeGeneration.[direction]Wall[monsterX][monsterY] == true */
       if (mazeGeneration.amountOfCellsVisited>= (mazeGeneration.mazeSizeX*mazeGeneration.mazeSizeY)) {
 
         if (mazeGeneration.topWall[monsterX][monsterY] == false 
@@ -389,7 +406,7 @@ class Monster {
           && monsterCameFromTop != false) {
           monsterCurrentCellSituation[51] = 1; //up CR wall left top
         }
-        monsterAudioPicker = round(random(3));
+        monsterAudioPicker = round(random(3)); //PIECE OF CODE SELECTING A RANDOM OUT OF 4 NUMBERS TO DECIDE WHICH AUDIO IS PLAYED WHEN THE MONSTER TAKES A STEP
         monsterChosenDirection=round(random(51));              /*PIECE OF CODE SELECTING A RANDOM SITUATION FROM THE 52 PICKERS*/
         while (monsterCurrentCellSituation[monsterChosenDirection]!=1) {     /*LOOP THAT SELECTS A NEW PICKER UNTIL ONE HAS BEEN FOUND THAT IS AVAILABLE.*/
           monsterChosenDirection=round(random(51));
@@ -421,7 +438,7 @@ class Monster {
             monsterY-=1;         /*THE STATEMENT WHICH MAKES THE MONSTER MOVE ONE TILE BASED ON X OR Y. (y- UP, y+ DOWN, x- LEFT, x+ RIGHT).*/
             monsterSheetDown.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);
             monsterCameFromDown = true;  /*THE CODE DENOTING WHICH DIRECTION THE MONSTER CAME FROM (3 DOWN, 1 UP, 2 RIGHT, 4 LEFT)*/
-            if (monsterAudioPicker == 0) {
+            if (monsterAudioPicker == 0) { //PLAYS THE SOUND ATTACHED TO THE monsterAudioPicker
               assets.audiomonsterstep1.trigger();
             } else if (monsterAudioPicker == 1) {
               assets.audiomonsterstep2.trigger();
@@ -534,7 +551,7 @@ class Monster {
       }
     }
   }
-  void drawMonster() {
+  void drawMonster() { //ATTACHES A SPRITE TO THE COORDINATES OF THE MONSTER BASED ON THE DIRECTION IT CAME FROM/WHICH CELL HAS 'monstercamefrom'
     if (monsterCameFromTop ==false && monsterCameFromLeft == false && monsterCameFromRight == false && monsterCameFromDown==false) {
       monsterSheetDown.draw(monsterX*mazeGeneration.cellSize + mazeGeneration.offsetToCenterX, monsterY*mazeGeneration.cellSize);
     }
