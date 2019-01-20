@@ -5,6 +5,9 @@ Deze class veranderd verschillende schermen
 
 class ChangeScherm {
 
+/*
+This method loads the parts that are required for the first maze
+*/
 
   void changeMainMenu() {
     if (schermen.welkScherm[0]) {
@@ -34,10 +37,16 @@ class ChangeScherm {
       }
     }
   }
+  /*
+  This method is called when you beat a level.
+  */
   void changeGameScherm() {
     if (schermen.welkScherm[1]) {
       assets.audiovictory.rewind();
       assets.audiovictory.play();
+      startTimer.levelmin = 0;
+      startTimer.levelms = 0;
+      startTimer.levelsec = 0;
 
       if (player.level < 8) {
         mazeGeneration.changeMazeGeneration(72, 10+player.level-1, 10);
@@ -66,15 +75,20 @@ class ChangeScherm {
         monster3.changeMonster(90-player.level*3);
       }// THE NUMBER BETWEEN THE CONSTRUCTOR IS THE FREQUENCY AT WHICH THE MONSTER MAKES DECISIONS, IN THIS CASE EVERY 45 FRAMES.
       eindDeur.changeEindDeur();
-     
     }
   } 
+  /*
+  this method is called when you are gameover, it 
+  */
   void changeGameoverScherm() {
     if (schermen.welkScherm[2]) {         
       player.level = 0;
       startTimer.min = 0;
       startTimer.s = 0;
       startTimer.ms = 0;
+      startTimer.levelmin = 0;
+      startTimer.levelms = 0;
+      startTimer.levelsec = 0;
       scoreToevoegen.totalTime = "00:00";
       scoreToevoegen.totalScore = 0;
       if (key == 'z') {

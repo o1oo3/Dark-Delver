@@ -81,6 +81,7 @@ class Player {
     //spriteSheet = new SpriteSheet("Howdy clone.png", 6);
     //playerSheetDown.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
     if (bombAmount >= 1) {
+      text("x", 1200, 635);
       image(assets.imageBombStatikk, 1200, 635);
     }
   }
@@ -163,106 +164,108 @@ class Player {
   }
 
   void movePlayer() {
-    if (mazeGeneration.amountOfCellsVisited>= (mazeGeneration.mazeSizeX*mazeGeneration.mazeSizeY)) {
+    if (schermen.welkScherm[1]) {
+      if (mazeGeneration.amountOfCellsVisited>= (mazeGeneration.mazeSizeX*mazeGeneration.mazeSizeY)) {
 
-      if (key == CODED) {
-        if (keyCode == UP) {
-          playerstep=round(random(3)); //ASSIGNS A RANDOM NUMBER TO THE PRESS OF THE KEY
-          if (playerstep == 0) { //CHECKS THE NUMBER ASSIGNED TO THE KEYPRESS
-            assets.audioplayerstep1.trigger(); //TRIGGERS THE SOUND ATTACHED TO THE NUMBER ASSIGNED TO THE KEYPRESS
-          } else if (playerstep == 1) {
-            assets.audioplayerstep2.trigger();
-          } else if (playerstep == 2) {
-            assets.audioplayerstep3.trigger();
-          } else if (playerstep == 3) {
-            assets.audioplayerstep4.trigger();
+        if (key == CODED) {
+          if (keyCode == UP) {
+            playerstep=round(random(3)); //ASSIGNS A RANDOM NUMBER TO THE PRESS OF THE KEY
+            if (playerstep == 0) { //CHECKS THE NUMBER ASSIGNED TO THE KEYPRESS
+              assets.audioplayerstep1.trigger(); //TRIGGERS THE SOUND ATTACHED TO THE NUMBER ASSIGNED TO THE KEYPRESS
+            } else if (playerstep == 1) {
+              assets.audioplayerstep2.trigger();
+            } else if (playerstep == 2) {
+              assets.audioplayerstep3.trigger();
+            } else if (playerstep == 3) {
+              assets.audioplayerstep4.trigger();
+            }
+            if (playerChoice[0]) {
+              playerMoveUp = true;
+            }
+            if (playerMoveUp) {
+              playerY--;
+              //playerSheetUp.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
+              playerMoveUp = false;
+
+              for (int i = 0; i<playerChoice.length; i++) {
+                playerChoice[i] = false;
+              }
+            }
           }
-          if (playerChoice[0]) {
-            playerMoveUp = true;
+          if (keyCode == RIGHT) {
+            playerstep=round(random(3));
+            if (playerstep == 0) {
+              assets.audioplayerstep1.trigger();
+            } else if (playerstep == 1) {
+              assets.audioplayerstep2.trigger();
+            } else if (playerstep == 2) {
+              assets.audioplayerstep3.trigger();
+            } else if (playerstep == 3) {
+              assets.audioplayerstep4.trigger();
+            }
+            if (playerChoice[1]) {
+              playerMoveRight = true;
+            }
           }
-          if (playerMoveUp) {
-            playerY--;
-            //playerSheetUp.draw(playerX*mazeGeneration.cellSize+mazeGeneration.offsetToCenterX, playerY*mazeGeneration.cellSize);
-            playerMoveUp = false;
+
+          if (playerMoveRight) {
+            playerX++;
+
+            playerMoveRight = false;
 
             for (int i = 0; i<playerChoice.length; i++) {
               playerChoice[i] = false;
             }
           }
-        }
-        if (keyCode == RIGHT) {
-          playerstep=round(random(3));
-          if (playerstep == 0) {
-            assets.audioplayerstep1.trigger();
-          } else if (playerstep == 1) {
-            assets.audioplayerstep2.trigger();
-          } else if (playerstep == 2) {
-            assets.audioplayerstep3.trigger();
-          } else if (playerstep == 3) {
-            assets.audioplayerstep4.trigger();
+          if (keyCode == DOWN) {
+            playerstep=round(random(3));
+            if (playerstep == 0) {
+              assets.audioplayerstep1.trigger();
+            } else if (playerstep == 1) {
+              assets.audioplayerstep2.trigger();
+            } else if (playerstep == 2) {
+              assets.audioplayerstep3.trigger();
+            } else if (playerstep == 3) {
+              assets.audioplayerstep4.trigger();
+            }
+            if (playerChoice[2]) {
+              playerMoveBottom = true;
+            }
           }
-          if (playerChoice[1]) {
-            playerMoveRight = true;
+          if (playerMoveBottom) {
+            playerY++;
+
+            playerMoveBottom = false;
+
+            for (int i = 0; i<playerChoice.length; i++) {
+              playerChoice[i] = false;
+            }
           }
-        }
 
-        if (playerMoveRight) {
-          playerX++;
-
-          playerMoveRight = false;
-
-          for (int i = 0; i<playerChoice.length; i++) {
-            playerChoice[i] = false;
+          if (keyCode == LEFT) {
+            playerstep=round(random(3));
+            if (playerstep == 0) {
+              assets.audioplayerstep1.trigger();
+            } else if (playerstep == 1) {
+              assets.audioplayerstep2.trigger();
+            } else if (playerstep == 2) {
+              assets.audioplayerstep3.trigger();
+            } else if (playerstep == 3) {
+              assets.audioplayerstep4.trigger();
+            }
+            if (playerChoice[3]) {
+              playerMoveLeft = true;
+            }
           }
-        }
-        if (keyCode == DOWN) {
-          playerstep=round(random(3));
-          if (playerstep == 0) {
-            assets.audioplayerstep1.trigger();
-          } else if (playerstep == 1) {
-            assets.audioplayerstep2.trigger();
-          } else if (playerstep == 2) {
-            assets.audioplayerstep3.trigger();
-          } else if (playerstep == 3) {
-            assets.audioplayerstep4.trigger();
-          }
-          if (playerChoice[2]) {
-            playerMoveBottom = true;
-          }
-        }
-        if (playerMoveBottom) {
-          playerY++;
+          if (playerMoveLeft) {
+            playerX--;
 
-          playerMoveBottom = false;
-
-          for (int i = 0; i<playerChoice.length; i++) {
-            playerChoice[i] = false;
-          }
-        }
-
-        if (keyCode == LEFT) {
-          playerstep=round(random(3));
-          if (playerstep == 0) {
-            assets.audioplayerstep1.trigger();
-          } else if (playerstep == 1) {
-            assets.audioplayerstep2.trigger();
-          } else if (playerstep == 2) {
-            assets.audioplayerstep3.trigger();
-          } else if (playerstep == 3) {
-            assets.audioplayerstep4.trigger();
-          }
-          if (playerChoice[3]) {
-            playerMoveLeft = true;
-          }
-        }
-        if (playerMoveLeft) {
-          playerX--;
-
-          playerMoveLeft = false;
+            playerMoveLeft = false;
 
 
-          for (int i = 0; i<playerChoice.length; i++) {
-            playerChoice[i] = false;
+            for (int i = 0; i<playerChoice.length; i++) {
+              playerChoice[i] = false;
+            }
           }
         }
       }
